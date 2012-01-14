@@ -1,4 +1,3 @@
-
 (function($){$.prettyPhoto={version:'2.5.4'};$.fn.prettyPhoto=function(settings){settings=jQuery.extend({animationSpeed:'normal',padding:40,opacity:0.80,showTitle:true,allowresize:true,counter_separator_label:'/',theme:'light_rounded',hideflash:false,modal:false,changepicturecallback:function(){},callback:function(){}},settings);if($.browser.msie&&$.browser.version==6){settings.theme="light_square";}
 if($('.pp_overlay').size()==0){_buildOverlay();}else{$pp_pic_holder=$('.pp_pic_holder');$ppt=$('.ppt');}
 var doresize=true,percentBased=false,correctSizes,$pp_pic_holder,$ppt,pp_contentHeight,pp_contentWidth,pp_containerHeight,pp_containerWidth,pp_type='image',setPosition=0,$scrollPos=_getScroll();$(window).scroll(function(){$scrollPos=_getScroll();_centerOverlay();_resizeOverlay();});$(window).resize(function(){_centerOverlay();_resizeOverlay();});$(document).keydown(function(e){if($pp_pic_holder.is(':visible'))
