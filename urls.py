@@ -6,6 +6,7 @@ from django.conf.urls.defaults import patterns, include, url
 
 urlpatterns = patterns('',
     url(r'^$', 'PennApps2012S.views.home', name='home'),
+    (r'^accounts/', include('registration.backends.default.urls')),
     # url(r'^PennApps2012S/', include('PennApps2012S.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
