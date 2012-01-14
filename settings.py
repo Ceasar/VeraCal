@@ -34,9 +34,18 @@ MEDIA_BUNDLES = (
     ),
     ('jquery.js',
         'js/jquery.js'),
-
+    ('slide.js', 
+    'js/slide.js'),
+    ('slide.css',
+        'css/slide.css'),
     ('slideshow/js/swfobject/swfobject.js',
     'slideshow/js/swfobject/swfobject.js'),
+
+    ('prettyPhoto.js',
+        'js/prettyPhoto/js/jquery.prettyPhoto.js'),
+
+    ('custom.js',
+    'js/custom.js'),
 )
 
 DATABASES = {

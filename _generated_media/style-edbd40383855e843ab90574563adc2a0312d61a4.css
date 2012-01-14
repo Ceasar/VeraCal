@@ -23,8 +23,6 @@ margin:0 auto;
 }
 
 
-/*HEAD AREA*/
-
 #head{
 height:110px;
 z-index: 5;
@@ -86,9 +84,6 @@ font-size: 16px;
 display:block;
 font-size: 10px;
 }
-
-
-/*navigation*/
 
 
 #nav ul{
@@ -157,11 +152,6 @@ display:block;
 border-top:none;
 }
 
-
-
-
-/*featured*/
-
 #featured{
 position:relative;
 width:960px;
@@ -188,7 +178,6 @@ z-index: 3;
 visibility: visible;
 }
 
-/*infotext*/
 #infotext{
 width:940px;
 padding:0 10px;
@@ -202,7 +191,6 @@ position:relative;
 top:2px;
 }
 
-/*content*/
 
 #main{
 padding-top:40px;
@@ -286,8 +274,6 @@ margin-right:20px;
 padding:15px 0 4px 0;
 }
 
-
-/*blog*/
 .entry{
 position: relative;
 padding-bottom:30px;
@@ -373,7 +359,6 @@ top:25px;
 width:53px;
 }
 
-/*pagination*/
 
 #top .pagination {
 clear:both;
@@ -399,10 +384,6 @@ font-size:11px;
 padding:3px 6px;
 }
 
-
-
-
-/*footer*/
 #footer{
 width:940px;
 position: relative;
@@ -519,11 +500,6 @@ border:none;
 padding:0;
 }
 
-
-
-
-
-/*generic*/
 .rounded{
 -moz-border-radius: 4px;
 -webkit-border-radius:4px;
@@ -612,8 +588,6 @@ text-decoration:none;
 border:none;
 } 
 
-
-
 blockquote p{
 padding:11px 0px;
 }
@@ -693,15 +667,10 @@ left:0;
 position: relative;
 border:none;
 }
-/*CONTACT FORM*/	
-
-
 
 #searchsubmit, #send, #top #submit{
 cursor:pointer;
 }
-
-
 
 .text_input, .text_area{
 padding:4px;
@@ -724,7 +693,6 @@ display:none;
 padding-bottom:20px;
 }
 
-
 fieldset{
 border:none;
 padding:0;
@@ -744,16 +712,10 @@ padding:10px 0 0 0;
 width:600px;
 }
 
-/*CONTACT FORM*/	
 #send, #top #submit{
 cursor:pointer;
 
 }
-
-
-
-/*comments*/
-
 
 .commentlist{
 margin-bottom:20px;
@@ -764,7 +726,6 @@ width:100%;
 #top .commentlist #comment{
 width:70%;
 }
-
 
 .commentlist li{
 width:100%;
