@@ -11,7 +11,7 @@ class Calendar(models.Model):
 class Task(models.Model):
   calender = models.ForeignKey(Calendar)
   date = models.DateField()
-  name = models.CharField()
+  name = models.CharField(max_length=100)
   priority = models.IntegerField()
 
   def __unicode__(self):

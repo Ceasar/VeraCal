@@ -1,4 +1,57 @@
-{%block title %}
-{%endblock%}
-{%block content %}
-{%endblock %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Veracal</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/style1.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="js/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />	
+    <script type='text/javascript' src='js/jquery.js'></script>
+    <script src="js/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>	
+    <script type="text/javascript" src="slideshow/js/swfobject/swfobject.js"></script>
+    <script type="text/javascript">
+      var flashvars = {};
+flashvars.xml = "slideshow/config.xml";
+flashvars.font = "font.swf";
+var attributes = {};
+attributes.wmode = "transparent";
+attributes.id = "slider";
+swfobject.embedSWF("slideshow/cu3er.swf", "featured_image", "940", "420", "9", "expressInstall.swf", flashvars, attributes);
+</script>	
+{% block head %}
+{% endblock %}
+<script type='text/javascript' src='js/custom.js'></script>
+<!--[if IE 6]>
+<script type='text/javascript' src='js/dd_belated_png.js'></script>
+<script>DD_belatedPNG.fix('.ie6fix');</script>
+<style>#footer .box ul li a, #sidebar .box ul a {zoom:1;}</style>
+<![endif]-->
+</head>
+<body id='frontpage'>
+  <div class='wrapper'>
+    {% block body %}
+    {% endblock %}
+    <div class="box box_custom_footer">
+      <a href='contact.php' class='custom_button ie6fix rounded'><strong>Contact Form</strong><span>get in touch with us</span></a>
+      <div id='sitesearch_footer'>
+        <h4>Search Site</h4>
+        <form action="#" id="searchform" method="get">
+          <div><input type="text" class='rounded' id="s" name="s" value=""/>
+            <input type="submit" value="." id="searchsubmit" class="button ie6fix"/>
+          </div>
+        </form>
+      </div>
+      <p>Copyright 2012 Veracal</p>	
+      <ul class="social_bookmarks">
+        <li class='rss'><a class='ie6fix' href="#">RSS</a></li>
+        <li class='facebook'><a class='ie6fix' href="#">Facebook</a></li>
+        <li class='twitter'><a class='ie6fix' href="#">Twitter</a></li>
+        <li class='flickr'><a class='ie6fix' href="#">flickr</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+</html>
