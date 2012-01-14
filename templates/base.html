@@ -4,22 +4,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Veracal</title>
-    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/style1.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="js/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />	
-    <script type='text/javascript' src='js/jquery.js'></script>
-    <script src="js/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>	
-    <script type="text/javascript" src="slideshow/js/swfobject/swfobject.js"></script>
-    <script type="text/javascript">
-      var flashvars = {};
-flashvars.xml = "slideshow/config.xml";
-flashvars.font = "font.swf";
-var attributes = {};
-attributes.wmode = "transparent";
-attributes.id = "slider";
-swfobject.embedSWF("slideshow/cu3er.swf", "featured_image", "940", "420", "9", "expressInstall.swf", flashvars, attributes);
-</script>	
+	
 {% block head %}
+{% load media %} {% include_media 'style.css' %} {% include_media 'style1.css' %} {% include_media 'prettyPhoto.css' %} {% include_media 'jquery.js' %} {% include_media 'slideshow/js/swfobject/swfobject.js'%} {% include_media 'slide.js' %} {% include_media 'custom.js' %}
 {% endblock %}
 <script type='text/javascript' src='js/custom.js'></script>
 <!--[if IE 6]>
