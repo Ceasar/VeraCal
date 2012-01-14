@@ -53,6 +53,8 @@ MEDIA_BUNDLES = (
     'js/calender.js'),
     ('ICanHaz.js',
     'js/ICanHaz.js'),
+    ('backbone-tastypie.js',
+    'js/backbone-tastypie.js'),
     ('underscore.js',
     'js/underscore-1.3.0.min.js')
 )
