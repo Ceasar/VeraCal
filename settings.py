@@ -39,7 +39,7 @@ MEDIA_BUNDLES = (
     ('slide.css',
         'css/slide.css'),
     ('slideshow/js/swfobject/swfobject.js',
-    'slideshow/js/swfobject/swfobject.js'),
+    'js/swfobject.js'),
 
     ('prettyPhoto.js',
         'js/prettyPhoto/js/jquery.prettyPhoto.js'),
