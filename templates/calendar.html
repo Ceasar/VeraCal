@@ -1,12 +1,124 @@
 {% block head %}
+{%load verbatim%}
+
 {% load media %}
 {% include_media 'underscore.js' %} {% include_media 'backbone.js' %}
  {% include_media 'style.css' %} {% include_media 'style1.css' %} {% include_media 'prettyPhoto.css' %} {% include_media 'jquery.js' %} 
-{% include_media 'ICanHaz.js' %}{% include_media 'calendar.js' %}{% endblock %}
+{% include_media 'ICanHaz.js' %}{% endblock %}
+<script>
 
+var oldSync = Backbone.sync;
+ 
+Backbone.sync = function(method, model, success, error){
+    var newSuccess = function(resp, status, xhr){
+        if(xhr.statusText === "CREATED"){
+            var location = xhr.getResponseHeader('Location');
+            console.log(location);
+            return $.ajax({
+                       url: location,
+                       success: success
+                   });
+        }
+        return success(resp);
+    };
+    return oldSync(method, model, newSuccess, error);
+
+};
+
+
+window.Tweet = Backbone.Model.extend({
+  url: function(){
+     return this.get('resource_uri') || this.collection.url;
+  }
+});
+ 
+window.Tweets = Backbone.Collection.extend({
+  url: 'tasks',
+  parse: function(data){
+      console.log("data.objects = " + data.objects);
+      return data.objects;
+  }
+});
+
+
+window.TweetView = Backbone.View.extend({
+  tagName: 'li',
+  className: 'tweet',
+ 
+  render: function(){
+      $(this.el).html(ich.tweetTemplate(this.model.toJSON()));
+      return this;
+  }
+});
+
+
+
+window.App = Backbone.View.extend({
+  el: $('#app'),
+ 
+  events: {
+      'click .tweet': 'createTweet'
+  },
+ 
+  initialize: function(){
+      _.bindAll(this, 'addOne', 'addAll', 'render');
+      this.tweets = new Tweets();
+      this.tweets.bind('add', this.addOne);
+      this.tweets.bind('refresh', this.addAll);
+      this.tweets.bind('all', this.render);
+      this.tweets.fetch();
+  },
+ 
+  addAll: function(){
+      this.tweets.each(this.addOne);
+  },
+ 
+  addOne: function(tweet){
+      var view = new TweetView({model:tweet});
+      this.$('#tweets').append(view.render().el);
+  },
+ 
+  createTweet: function(){
+      var tweet = this.$('#message').val();
+      if(tweet){
+          this.tweets.create({
+                                 message: tweet,
+                                 username: "Test User"
+                             });
+          this.$('#message').val('');
+      }
+  }
+});
+ 
+window.app = new App();
+</script>
 {% block content %}
-<div id="main">
-  <ul>
-  </ul>
-</div>
+
+
+
+    {%verbatim%}
+    <script type="text/html" id="tweetTemplate">
+      <a class="username">{{username}}</a>
+      <p class="message">
+        {{message}}
+      </p>
+      <abbr class="timestamp">{{timestamp}}</abbr>
+    </script>
+    {%endverbatim%}
+  </head>
+ 
+  <body>
+    <div id="app">
+      <div id="input">
+        <strong>What's going on?</strong>
+        <textarea id="message"></textarea>
+        <button class="tweet">Tweet</button>
+      </div>
+      <h2>Timeline</h2>
+      <ul id="tweets">
+      </ul>
+    </div>
+  </body>
+
+
 {% endblock %}
