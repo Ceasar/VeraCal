@@ -1,55 +1,85 @@
-(function () {
+(function(){
     window.Task = Backbone.Model.extend({
         urlRoot: TASK_API
     });
 
-
     window.Tasks = Backbone.Collection.extend({
         urlRoot: TASK_API,
-        model: Task,
+        model: Task, 
 
-        comparator: function (task) {
-            return task.get('priority');
+        maybeFetch: function(options){
+            if(this._fetched){
+                options.success && options.success();
+                return;
+            }
+            var self = this,
+                successWrapper = function(success){
+                    return function(){
+                        self._fetched = true;
+                        success && success.apply(this, arguments);
+                    };
+                };
+            options.success = successWrapper(options.success);
+            this.fetch(options);
+        },
+
+        getOrFetch: function(id, options){
+            var model = this.get(id);
+
+            if(model){
+                options.success && options.success(model);
+                return;
+            }
+
+            model = new Task({
+                resource_uri: id
+            });
+
+            model.fetch(options);
         }
+        
+
     });
-
-
 
     window.TaskView = Backbone.View.extend({
         tagName: 'li',
         className: 'task',
 
-        events: {},
+        events: {
+            'click .permalink': 'navigate'           
+        },
 
-        initialize: function () {
+        initialize: function(){
             this.model.bind('change', this.render, this);
         },
 
-        render: function () {
+        navigate: function(e){
+            this.trigger('navigate', this.model);
+            e.preventDefault();
+        },
+
+        render: function(){
             $(this.el).html(ich.taskTemplate(this.model.toJSON()));
             return this;
-        }
+        }                                        
     });
 
 
-
     window.DetailApp = Backbone.View.extend({
-        el: "#app",
         events: {
             'click .home': 'home'
         },
-
-        home: function (e) {
+        
+        home: function(e){
             this.trigger('home');
             e.preventDefault();
         },
 
-        render: function () {
+        render: function(){
             $(this.el).html(ich.detailApp(this.model.toJSON()));
             return this;
-        }
+        }                                        
     });
-
 
     window.InputView = Backbone.View.extend({
         events: {
@@ -57,17 +87,17 @@
             'keypress #message': 'createOnEnter'
         },
 
-        createOnEnter: function (e) {
-            if ((e.keyCode || e.which) == 13) {
+        createOnEnter: function(e){
+            if((e.keyCode || e.which) == 13){
                 this.createTask();
                 e.preventDefault();
             }
 
         },
 
-        createTask: function () {
+        createTask: function(){
             var message = this.$('#message').val();
-            if (message) {
+            if(message){
                 this.collection.create({
                     message: message
                 });
@@ -78,7 +108,7 @@
     });
 
     window.ListView = Backbone.View.extend({
-        initialize: function () {
+        initialize: function(){
             _.bindAll(this, 'addOne', 'addAll');
 
             this.collection.bind('add', this.addOne);
@@ -86,12 +116,12 @@
             this.views = [];
         },
 
-        addAll: function () {
+        addAll: function(){
             this.views = [];
             this.collection.each(this.addOne);
         },
 
-        addOne: function (task) {
+        addOne: function(task){
             var view = new TaskView({
                 model: task
             });
@@ -100,7 +130,7 @@
             view.bind('all', this.rethrow, this);
         },
 
-        rethrow: function () {
+        rethrow: function(){
             this.trigger.apply(this, arguments);
         }
 
@@ -109,11 +139,11 @@
     window.ListApp = Backbone.View.extend({
         el: "#app",
 
-        rethrow: function () {
+        rethrow: function(){
             this.trigger.apply(this, arguments);
         },
 
-        render: function () {
+        render: function(){
             $(this.el).html(ich.listApp({}));
             var list = new ListView({
                 collection: this.collection,
@@ -125,27 +155,27 @@
                 collection: this.collection,
                 el: this.$('#input')
             });
-        }
+        }        
     });
 
-
+    
     window.Router = Backbone.Router.extend({
         routes: {
             '': 'list',
             ':id/': 'detail'
         },
 
-        navigate_to: function (model) {
+        navigate_to: function(model){
             var path = (model && model.get('id') + '/') || '';
             this.navigate(path, true);
         },
 
-        detail: function () {},
+        detail: function(){},
 
-        list: function () {}
+        list: function(){}
     });
 
-    $(function () {
+    $(function(){
         window.app = window.app || {};
         app.router = new Router();
         app.tasks = new Tasks();
@@ -156,16 +186,16 @@
         app.detail = new DetailApp({
             el: $("#app")
         });
-        app.router.bind('route:list', function () {
+        app.router.bind('route:list', function(){
             app.tasks.maybeFetch({
-                success: _.bind(app.list.render, app.list)
+                success: _.bind(app.list.render, app.list)                
             });
         });
-        app.router.bind('route:detail', function (id) {
+        app.router.bind('route:detail', function(id){
             app.tasks.getOrFetch(app.tasks.urlRoot + id + '/', {
-                success: function (model) {
+                success: function(model){
                     app.detail.model = model;
-                    app.detail.render();
+                    app.detail.render();                    
                 }
             });
         });
@@ -173,7 +203,7 @@
         app.list.bind('navigate', app.router.navigate_to, app.router);
         app.detail.bind('home', app.router.navigate_to, app.router);
         Backbone.history.start({
-            pushState: true,
+            pushState: true, 
             silent: app.loaded
         });
     });
