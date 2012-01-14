@@ -1,11 +1,15 @@
-import json
-
 from django.contrib.auth.models import User
 from django.db import models
 
 
 class Calendar(models.Model):
   user = models.ForeignKey(User)
+
+  def to_json(self):
+    d = dict(self.__dict__)
+    del d['_state']
+    d['tasks'] = [task.to_json() for task in self.task_set.all()]
+    return d
 
 
 class Task(models.Model):
@@ -16,3 +20,9 @@ class Task(models.Model):
 
   def __unicode__(self):
     return self.name
+
+  def to_json(self):
+    d = dict(self.__dict__)
+    del d['_state']
+    d['date'] = str(d['date'])
+    return d

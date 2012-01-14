@@ -1,8 +1,7 @@
-import json
-
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 
+from helpers import json
 from models import Calendar, Task
 
 
@@ -11,14 +10,15 @@ def calendar(request):
   return render_to_response('calendar.html')
 
 
+@json
 def calendar_read(request):
   assert request.method == "GET"
-  assert 'id' in request.GET
-  calendar = Calendar.objects.get(id=int(request.GET['id']))
-  # django adds a _state key to objects so we need to copy and delete it first
-  cal_dict = dict(calendar.__dict__)
-  del cal_dict['_state']
-  return HttpResponse(json.dumps(cal_dict))
+  if 'id' in request.GET:
+    calendar = Calendar.objects.get(id=int(request.GET['id']))
+    return calendar.to_json()
+  else:
+    calendars = Calendar.objects.all()
+    return [calendar.to_json() for calendar in calendars]
 
 
 def task_create(request):
@@ -27,16 +27,16 @@ def task_create(request):
   return HttpResponse()
 
 
+@json
 def task_read(request):
   assert request.method == 'GET'
-  assert 'id' in request.GET
-  task = Task.objects.get(id=int(request.GET['id']))
-  # django adds a _state key to objects so we need to copy and delete it first
-  task_dict = dict(task.__dict__)
-  del task_dict['_state']
-  # additionally, datetime isn't serializble, so we need to make it a string
-  task_dict['date'] = str(task_dict['date'])
-  return HttpResponse(json.dumps(task_dict))
+  if 'id' in request.GET:
+    task = Task.objects.get(id=int(request.GET['id']))
+    return task.to_json()
+  else:
+    tasks = Task.objects.all()
+    return [task.to_json() for task in tasks]
+    
 
 
 def task_update(request):
