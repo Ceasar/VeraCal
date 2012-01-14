@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+
+
+<!-- basic meta tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="robots" content="noindex, follow" />
+
+
+
+<!-- title -->
+<title>  Page not found</title>
+
+
+<!-- feeds and pingback -->
+<link rel="alternate" type="application/rss+xml" title="Display RSS2 Feed" href="http://www.kriesi.at/demos/display/feed/" />
+<link rel="pingback" href="http://www.kriesi.at/demos/display/xmlrpc.php" />
+
+
+<!-- stylesheets -->
+<link rel="stylesheet" href="http://www.kriesi.at/demos/display/wp-content/themes/display/js/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="http://www.kriesi.at/demos/display/wp-content/themes/display/style.css" type="text/css" media="screen" />
+
+<link rel="stylesheet" href="http://www.kriesi.at/demos/display/wp-content/themes/display/css/style1.css" type="text/css" media="screen"/>
+
+
+<!-- scripts -->
+<script type="text/javascript" src="http://www.kriesi.at/demos/display/wp-content/themes/display/slideshow/js/swfobject/swfobject.js"></script>
+
+<script type="text/javascript">
+	var flashvars = {};
+	flashvars.xml = "http://www.kriesi.at/demos/display/wp-content/themes/display/slideshow/dont_edit.php";
+	var attributes = {};
+	attributes.wmode = "transparent";
+	attributes.id = "slider";
+	swfobject.embedSWF("http://www.kriesi.at/demos/display/wp-content/themes/display/slideshow/cu3er.swf", "featured_image", "940", "420", "9", "expressInstall.swf", flashvars, attributes);
+</script>
+
+<!-- Internet Explorer 6 PNG Transparency Fix for all elements with class 'ie6fix' -->	
+<!--[if IE 6]>
+<script type='text/javascript' src='http://www.kriesi.at/demos/display/wp-content/themes/display/js/dd_belated_png.js'></script>
+<script>DD_belatedPNG.fix('.ie6fix');</script>
+<style>#footer .box ul li a, #sidebar .box ul a {zoom:1;}</style>
+<![endif]-->
+
+<script type='text/javascript' src='http://www.kriesi.at/demos/display/wp-includes/js/jquery/jquery.js?ver=1.4.2'></script>
+<script type='text/javascript' src='http://www.kriesi.at/demos/display/wp-content/themes/display/js/prettyPhoto/js/jquery.prettyPhoto.js?ver=3.0.4'></script>
+<script type='text/javascript' src='http://www.kriesi.at/demos/display/wp-content/themes/display/js/custom.js?ver=3.0.4'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.kriesi.at/demos/display/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.kriesi.at/demos/display/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='Display' href='http://www.kriesi.at/demos/display/' />
+
+
+<!-- Debugging help, do not remove -->
+<meta name="Framework" content="Kpress" />
+<meta name="Theme Version" content="2.0" />
+<meta name="Framework Version" content="1.4" />
+<meta name="CMS Version" content="3.0.4" />
+
+
+
+<!-- meta tags, needed for javascript -->
+<meta name="autorotate" content="1" />
+<meta name="autorotate_duration" content="5" />
+<meta name="temp_url" content="http://www.kriesi.at/demos/display/wp-content/themes/display" />
+
+
+</head>
+
+
+<body id='subpage' class="error404">
+
+	<div class='wrapper'>
+	
+		<div id="top">
+		
+			<div id="head">
+	
+				<h1 class="logo ie6fix logobg"><a href="http://www.kriesi.at/demos/display/">Display</a></h1>
+				
+				<ul id="nav" class="nav"><li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/"><strong>Home</strong><span>the starting page</span></a></li>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/blog/"><strong>Blog</strong><span>the latest gossip</span></a></li>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/about/"><strong>About</strong><span>this is our company</span></a><ul>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/wordpress-template-display/">This Template</a></li>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/amanded-with-adobe-flash/">Adobe Flash</a></li>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/jquery-to-the-rescue/">jQuery improved</a></li>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/company/">Our Company »</a><ul>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/jobs/">Jobs</a></li>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/this-is-becoming-boring-p/">Anoter Link</a></li>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/rather-short/">Just for </a></li>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/the-demonstration-purpose/">Demonstration</a></li></ul>
+</li></ul>
+</li>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/portfolio/"><strong>Portfolio</strong><span>our best workpieces</span></a><ul>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/web-design/">Web Design</a></li>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/photography/">Photography</a></li>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/video/">Video</a></li></ul>
+</li>
+<li class="li_item"><a class="navlink " href="http://www.kriesi.at/demos/display/contact/"><strong>Contact</strong><span>send us an E-mail</span></a></li></ul>
+				
+			</div>	<!-- end #head -->
+
+
+        
+
+
+		<div id="main">
+			<div id="content">
+
+				<div class='entry'>
+           			<h2>ERROR 404</h2>
+ 					<h4>We are sorry, the page you are looking for does not exist</h4>
+           			<p>You might try to use our Site search or try to browse the site with the help of the main navigation menu</p> 
+				</div><!--end entry-->
+			</div><!-- end content -->
+			
+			<div id='sidebar'>
+			
+			
+						<div class='box box_small'>
+	            <h3>Categories</h3>
+				<ul>
+	            	<li class="cat-item cat-item-7"><a href="http://www.kriesi.at/demos/display/category/news/" title="View all posts filed under News">News</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.kriesi.at/demos/display/category/portfolio/" title="View all posts filed under Portfolio">Portfolio</a>
+</li>
+	            </ul>
+            </div>
+
+			<div class='box box_small'>
+	            <h3>Archive</h3>
+				<ul>
+	            	<li><a href='http://www.kriesi.at/demos/display/2009/12/' title='December 2009'>December 2009</a></li>
+	<li><a href='http://www.kriesi.at/demos/display/2009/09/' title='September 2009'>September 2009</a></li>
+	<li><a href='http://www.kriesi.at/demos/display/2008/11/' title='November 2008'>November 2008</a></li>
+	<li><a href='http://www.kriesi.at/demos/display/2007/01/' title='January 2007'>January 2007</a></li>
+	            </ul>
+            </div>
+			<div id="tag_cloud-3" class="box_small box widget widget_tag_cloud"><h3 class="widgettitle">Tags</h3><div><a href='http://www.kriesi.at/demos/display/tag/3in1/' class='tag-link-22' title='2 topics' style='font-size: 16.4pt;'>3in1</a>
+<a href='http://www.kriesi.at/demos/display/tag/adobe/' class='tag-link-16' title='1 topic' style='font-size: 8pt;'>adobe</a>
+<a href='http://www.kriesi.at/demos/display/tag/apple/' class='tag-link-8' title='3 topics' style='font-size: 22pt;'>apple</a>
+<a href='http://www.kriesi.at/demos/display/tag/banana/' class='tag-link-11' title='2 topics' style='font-size: 16.4pt;'>banana</a>
+<a href='http://www.kriesi.at/demos/display/tag/blog/' class='tag-link-12' title='2 topics' style='font-size: 16.4pt;'>blog</a>
+<a href='http://www.kriesi.at/demos/display/tag/display/' class='tag-link-21' title='1 topic' style='font-size: 8pt;'>display</a>
+<a href='http://www.kriesi.at/demos/display/tag/entry/' class='tag-link-14' title='2 topics' style='font-size: 16.4pt;'>entry</a>
+<a href='http://www.kriesi.at/demos/display/tag/flash/' class='tag-link-17' title='1 topic' style='font-size: 8pt;'>flash</a>
+<a href='http://www.kriesi.at/demos/display/tag/heading/' class='tag-link-15' title='1 topic' style='font-size: 8pt;'>heading</a>
+<a href='http://www.kriesi.at/demos/display/tag/jquery/' class='tag-link-23' title='1 topic' style='font-size: 8pt;'>jQuery</a>
+<a href='http://www.kriesi.at/demos/display/tag/lightning/' class='tag-link-18' title='1 topic' style='font-size: 8pt;'>lightning</a>
+<a href='http://www.kriesi.at/demos/display/tag/microsoft/' class='tag-link-9' title='1 topic' style='font-size: 8pt;'>microsoft</a>
+<a href='http://www.kriesi.at/demos/display/tag/test/' class='tag-link-13' title='1 topic' style='font-size: 8pt;'>test</a>
+<a href='http://www.kriesi.at/demos/display/tag/thief/' class='tag-link-19' title='1 topic' style='font-size: 8pt;'>thief</a>
+<a href='http://www.kriesi.at/demos/display/tag/trailer/' class='tag-link-20' title='1 topic' style='font-size: 8pt;'>trailer</a>
+<a href='http://www.kriesi.at/demos/display/tag/wordpress/' class='tag-link-10' title='2 topics' style='font-size: 16.4pt;'>wordpress</a></div>
+</div>	
+			</div><!-- end #sidebar -->
+
+         			
+		
+		</div><!--end main-->
+ 
+	</div><!-- end #top -->
+</div><!-- end #wrapper -->  
+
+<div class='wrapper' id='footerwrap'>
+
+	<div id='footer'>
+		<div class='footer_widgets'>
+				<div id="recent-posts-3" class="box_mini box widget widget_recent_entries">		<h4 class="widgettitle">Latest News</h4>		<ul>
+				<li><a href="http://www.kriesi.at/demos/display/apple-buys-microsoft/" title="Apple buys Microsoft">Apple buys Microsoft</a></li>
+				<li><a href="http://www.kriesi.at/demos/display/why-doesnt-apple-rebrand-to-banana/" title="Why doesnt Apple rebrand to Banana?">Why doesnt Apple rebrand to Banana?</a></li>
+				<li><a href="http://www.kriesi.at/demos/display/this-is-another-blog-testentry/" title="This is another Blog Testentry">This is another Blog Testentry</a></li>
+				<li><a href="http://www.kriesi.at/demos/display/this-is-a-sample-blog-post-with-long-heading/" title="This is a sample blog post with long heading">This is a sample blog post with long heading</a></li>
+				</ul>
+		</div><div id="archives-3" class="box_mini box widget widget_archive"><h4 class="widgettitle">Archives</h4>		<ul>
+			<li><a href='http://www.kriesi.at/demos/display/2009/12/' title='December 2009'>December 2009</a></li>
+	<li><a href='http://www.kriesi.at/demos/display/2009/09/' title='September 2009'>September 2009</a></li>
+	<li><a href='http://www.kriesi.at/demos/display/2008/11/' title='November 2008'>November 2008</a></li>
+	<li><a href='http://www.kriesi.at/demos/display/2007/01/' title='January 2007'>January 2007</a></li>
+		</ul>
+</div><div id="categories-3" class="box_mini box widget widget_categories"><h4 class="widgettitle">Categories</h4>		<ul>
+	<li class="cat-item cat-item-7"><a href="http://www.kriesi.at/demos/display/category/news/" title="View all posts filed under News">News</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.kriesi.at/demos/display/category/portfolio/" title="View all posts filed under Portfolio">Portfolio</a>
+</li>
+		</ul>
+</div><div id="meta-2" class="box_mini box widget widget_meta"><h4 class="widgettitle">Miscellaneous </h4>			<ul>
+						<li><a href="http://www.kriesi.at/demos/display/wp-login.php">Log in</a></li>
+			<li><a href="http://www.kriesi.at/demos/display/feed/" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://www.kriesi.at/demos/display/comments/feed/" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>
+						</ul>
+</div>		</div>
+		<div class="box box_custom_footer">
+		
+						
+			<!-- big button -->
+			<a href='http://www.kriesi.at/demos/display/contact/' class='custom_button ie6fix rounded'>
+				<strong>Contact Form</strong>
+				<span>get in touch with us</span>
+			</a>
+			
+			
+			<div id='sitesearch_footer'>
+			<h4>Search Site</h4>
+				<form method="get" id="searchform" action="http://www.kriesi.at/demos/display/">
+<div><input type="text" class='rounded' value="" name="s" id="s" />
+<input type="submit" class="button ie6fix" id="searchsubmit" value="." />
+</div>
+</form>
+			</div>
+			
+			<!-- copyright text -->
+			<p>This site uses valid HTML and CSS. All content Copyright © 2010 DISPLAY, Inc</p>
+			
+			<!-- social bookmarks -->
+			<ul class="social_bookmarks">
+				<li class='rss'><a class='ie6fix' href="http://www.kriesi.at/demos/display/feed/">RSS</a></li>
+				<li class='facebook'><a class='ie6fix' href='http://facebook.com/themeforest/'>Facebook</a></li><li class='twitter'><a class='ie6fix' href='http://www.twitter.com/kriesi/'>Twitter</a></li><li class='flickr'><a class='ie6fix' href='http://www.flickr.com/people/34166943@N05'>flickr</a></li>			</ul>
+		</div>
+	
+	
+	</div><!--end footer-->
+	
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-785212-1");
+pageTracker._trackPageview();
+} catch(err) {}</script></body>
+</html>

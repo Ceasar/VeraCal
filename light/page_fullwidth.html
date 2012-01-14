@@ -8,17 +8,7 @@
 	<link rel="stylesheet" href="css/style1.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="js/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />	
 	<script type='text/javascript' src='js/jquery.js'></script>
-	<script src="js/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>	
-	<script type="text/javascript" src="slideshow/js/swfobject/swfobject.js"></script>
-	<script type="text/javascript">
-		var flashvars = {};
-		flashvars.xml = "slideshow/config.xml";
-		flashvars.font = "font.swf";
-		var attributes = {};
-		attributes.wmode = "transparent";
-		attributes.id = "slider";
-		swfobject.embedSWF("slideshow/cu3er.swf", "featured_image", "940", "420", "9", "expressInstall.swf", flashvars, attributes);
-</script>	
+	<script src="js/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>		
 	<script type='text/javascript' src='js/custom.js'></script>
 	<!--[if IE 6]>
 	<script type='text/javascript' src='js/dd_belated_png.js'></script>
@@ -26,7 +16,7 @@
 	<style>#footer .box ul li a, #sidebar .box ul a {zoom:1;}</style>
 	<![endif]-->
 </head>
-<body id='frontpage'>
+<body id='subpage' class='fullwidth'>
 <div class='wrapper'>
 	<div id="top">
 		<div id="head">
@@ -50,40 +40,18 @@
                 <li><a href="blog.html"><strong>About</strong><span>&nbsp;</span></a></li>
 				<li><a href="contact.php"><strong>Contact</strong><span>&nbsp;</span></a></li>
 					</ul>
-				</li>
-			</ul>
 		</div>	
-		<div id="featured">
-			<div id="featured_image">
-				<a href="single.html" class='current_img'><img src="files/bigpicture1.jpg" alt="" /></a>
-				<a href="single.html"><img src="files/bigpicture2.jpg" alt="" /></a>
-			</div>
-		</div>
-		<div id="infotext">
-		<h2>Personalize your calendar by </h2>
-		</div>
 		<div id="main">
-			<div class="box box_small box1">
-				<img src="files/medium1.jpg" alt="" />
-				<h3>Calendar, Personalized</h3>
-				<p>Explanation Here<a class="more-link" href="page.html">Read more</a>
-				</p>
+			<div id="content">
+				<div class='entry'>
+					<h2>Calendar View</h2>
+				  <p>&nbsp;</p>
+				  <p><img src="images/calendar.jpg" alt="" width="920" height="482" /></p>
+				  <p>&nbsp;</p>	
+				</div>
 			</div>
-			<div class="box box_small box2">
-				<img src="files/medium2.jpg" alt="" />
-				<h3>Flash</h3>
-				<p>Explanation here
-				<a class="more-link" href="page.html">Read more</a>
-				</p>
-			</div>
-			<div class="box box_small box3">
-				<img src="files/medium3.jpg" alt="" />
-				<h3>jquery</h3>
-				<p>Explanation Here <a class="more-link" href="page.html">Read more</a>
-				</p>
-			</div>	
-		</div>	
-	</div>
+		</div>
+	</div>	
 </div>
 <div class='wrapper' id='footerwrap'>
 	<div id='footer'>
@@ -138,7 +106,9 @@
 			<h4>Search Site</h4>
 				<form action="#" id="searchform" method="get">
 						<div><input type="text" class='rounded' id="s" name="s" value=""/>
-						<input type="submit" value="." id="searchsubmit" class="button ie6fix"/></div></form>
+						<input type="submit" value="." id="searchsubmit" class="button ie6fix"/>
+						</div>
+				</form>
 			</div>
 			<p>Copyright 2012 Veracal</p>	
 			<ul class="social_bookmarks">
