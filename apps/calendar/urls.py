@@ -1,11 +1,14 @@
 from django.conf.urls.defaults import *
-from api import TaskResource, CalendarResource
 
-calendar_resource = CalendarResource()
-task_resource = TaskResource()
+from tastypie.api import Api
+
+from api.resources import TaskResource, CalendarResource
+
+v1_api = Api(api_name='v1')
+v1_api.register(CalendarResource)
+v1_api.register(TaskResource())
 
 urlpatterns = patterns('',
   (r'^calendar$', 'apps.calendar.views.calendar'),
-  (r'^api/', include(task_resource.urls)),
-  (r'^api/', include(calendar_resource.urls)),
+  (r'^api/', include(v1_api.urls)),
   )

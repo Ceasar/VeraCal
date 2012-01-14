@@ -172,6 +172,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'apps.calendar',
     'apps.registration',
+    'tastypie',
 )
 
 
