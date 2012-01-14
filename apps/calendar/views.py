@@ -41,6 +41,6 @@ def task_update(request):
 
 def task_destroy(request):
   assert request.method == 'POST'
-  tid = request.POST['id']
-  Task.objects.get(id=int(id)).delete()
+  assert 'id' in request.POST
+  Task.objects.get(id=int(request.POST['id'])).delete()
   return HttpResponse()
