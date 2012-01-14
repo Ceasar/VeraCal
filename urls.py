@@ -5,8 +5,7 @@ from django.conf.urls.defaults import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'PennApps2012S.views.home', name='home'),
+    url(r'^$', 'PennApps2012S.views.home', name='home'),
     # url(r'^PennApps2012S/', include('PennApps2012S.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
