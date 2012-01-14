@@ -8,19 +8,7 @@
 {% include_media 'ICanHaz.js' %}{% include_media 'app.js' %}{% endblock %}
 
 {% block content %}
-
-
-
-    {%verbatim%}
-    <script type="text/html" id="taskTemplate">
-      <a class="username">{{username}}</a>
-      <p class="message">
-        {{message}}
-      </p>
-      <abbr class="timestamp">{{timestamp}}</abbr>
-    </script>
-    {%endverbatim%}
-  </head>
+  <head>
   <script>
       TASK_API = "{% url api_dispatch_list api_name="v1" resource_name="task" %}";
       {% if data %}
