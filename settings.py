@@ -75,7 +75,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = 'home/PennApps2012S/media/'
+MEDIA_ROOT = './media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -86,7 +86,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = 'home/PennApps2012S/static/'
+STATIC_ROOT = './Home/PennApps2012/static/'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
