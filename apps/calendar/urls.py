@@ -1,11 +1,11 @@
 from django.conf.urls.defaults import *
+from api import TaskResource, CalendarResource
 
-urlpatterns = patterns('apps.calendar.views',
-  (r'^tasks', 'tasks'),
+calendar_resource = CalendarResource()
+task_resource = TaskResource()
+
+urlpatterns = patterns('',
+  (r'^calendar$', 'apps.calendar.views.calendar'),
+  (r'^api/', include(task_resource.urls)),
+  (r'^api/', include(calendar_resource.urls)),
   )
-
-urlpatterns += patterns('apps.calendar.views',
-  (r'^calendars', 'calendars'), #json view
-  (r'^calendar', 'calendar'),
-  )
-
