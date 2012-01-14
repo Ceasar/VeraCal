@@ -8,6 +8,7 @@ urlpatterns = patterns('apps.calendar.views',
   )
 
 urlpatterns += patterns('apps.calendar.views',
-  (r'^calendars', 'calendar_read'),
+  (r'^calendars', 'calendar_read'), #json view
+  (r'^calendar', 'calendar'),
   )
 
