@@ -1,8 +1,7 @@
-import json
-
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 
+from helpers import json
 from models import Calendar, Task
 
 
@@ -11,15 +10,15 @@ def calendar(request):
   return render_to_response('calendar.html')
 
 
+@json
 def calendar_read(request):
   assert request.method == "GET"
   if 'id' in request.GET:
     calendar = Calendar.objects.get(id=int(request.GET['id']))
-    return HttpResponse(json.dumps(calendar.to_json()))
+    return calendar.to_json()
   else:
     calendars = Calendar.objects.all()
-    return HttpResponse(json.dumps(
-      [calendar.to_json() for calendar in calendars]))
+    return [calendar.to_json() for calendar in calendars]
 
 
 def task_create(request):
@@ -28,14 +27,15 @@ def task_create(request):
   return HttpResponse()
 
 
+@json
 def task_read(request):
   assert request.method == 'GET'
   if 'id' in request.GET:
     task = Task.objects.get(id=int(request.GET['id']))
-    return HttpResponse(json.dumps(task.to_json()))
+    return task.to_json()
   else:
     tasks = Task.objects.all()
-    return HttpResponse(json.dumps([task.to_json() for task in tasks]))
+    return [task.to_json() for task in tasks]
     
 
 
