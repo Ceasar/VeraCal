@@ -12,7 +12,7 @@
 
 
     {%verbatim%}
-    <script type="text/html" id="tweetTemplate">
+    <script type="text/html" id="taskTemplate">
       <a class="username">{{username}}</a>
       <p class="message">
         {{message}}
@@ -28,8 +28,8 @@
       {% endif %}
     </script>
 
-    <script type="text/html" id="tweetTemplate">
-      {% straight_include "tweetTemplate.mustache" %}
+    <script type="text/html" id="taskTemplate">
+      {% straight_include "taskTemplate.mustache" %}
     </script>
 
     <script type="text/html" id="listApp">
