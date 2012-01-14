@@ -5,7 +5,7 @@ from tastypie.api import Api
 from api.resources import TaskResource, CalendarResource
 
 v1_api = Api(api_name='v1')
-v1_api.register(CalendarResource)
+v1_api.register(CalendarResource())
 v1_api.register(TaskResource())
 
 urlpatterns = patterns('',
