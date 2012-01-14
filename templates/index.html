@@ -2,8 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <head>
+{% load media %}
+{% include_media 'style.css' %}
+{% include_media 'style1.css' %}
+{% include_media 'prettyPhoto.css' %}
+{% include_media 'jquery.js' %}
+{% include_media 'slideshow/js/swfobject/swfobject.js'%}
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Veracal</title>
+<<<<<<< HEAD
 	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/style1.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="js/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />	
@@ -13,6 +21,9 @@
 	<script type='text/javascript' src='js/jquery.js'></script>
 	<script src="js/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>	
 	<script type="text/javascript" src="slideshow/js/swfobject/swfobject.js"></script>
+=======
+
+>>>>>>> 411d44a0c7ccb16c628db82afd281c27ef396ae1
 	<script type="text/javascript">
 		var flashvars = {};
 		flashvars.xml = "slideshow/config.xml";
@@ -80,7 +91,8 @@
 <div class='wrapper'>
   <div id="top">
 		<div id="head">
-			<h1 class="logo ie6fix"><img src="images/logo.png" alt="" width="259" height="77" /></h1>
+			<h1 class="logo ie6fix"><img src="/media
+/images/logo.png" alt="" width="259" height="77" /></h1>
 			<ul id="nav">
 		    <li class='current'><a href="index-2.html"><strong>Home</strong><span>&nbsp;</span></a></li>
 				<li><a href="page_fullwidth.html"><strong>Calendar</strong><span>&nbsp;</span></a>
@@ -105,6 +117,7 @@
 		</div>	
 		<div id="featured">
 			<div id="featured_image">
+<<<<<<< HEAD
 				<a href="single.html" class='current_img'><img src="files/bigpicture1.jpg" alt="" /></a>
 				<a href="single.html"><img src="files/bigpicture2.jpg" alt="" /></a>
                 <a href="single.html"><img src="files/bigpicture3.jpg" alt="" /></a>
@@ -114,6 +127,36 @@
 		</div>
 <div id="main">
 </div>
+=======
+				<a href="single.html" class='current_img'><img src="/media/images/bigpicture1.jpg" alt="" /></a>
+				<a href="single.html"><img src="/media/images/bigpicture2.jpg" alt="" /></a>
+			</div>
+		</div>
+		<div id="infotext">
+		<h2>Personalize your calendar by </h2>
+		</div>
+		<div id="main">
+			<div class="box box_small box1">
+				<img src="/media/images/medium1.jpg" alt="" />
+				<h3>Calendar, Personalized</h3>
+				<p>Explanation Here<a class="more-link" href="page.html">Read more</a>
+				</p>
+			</div>
+			<div class="box box_small box2">
+				<img src="/media/images/medium2.jpg" alt="" />
+				<h3>Flash</h3>
+				<p>Explanation here
+				<a class="more-link" href="page.html">Read more</a>
+				</p>
+			</div>
+			<div class="box box_small box3">
+				<img src="/media/images/medium3.jpg" alt="" />
+				<h3>jquery</h3>
+				<p>Explanation Here <a class="more-link" href="page.html">Read more</a>
+				</p>
+			</div>	
+		</div>	
+>>>>>>> 411d44a0c7ccb16c628db82afd281c27ef396ae1
 	</div>
 </div>
 <div class='wrapper' id='footerwrap'>

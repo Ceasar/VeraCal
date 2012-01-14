@@ -6,8 +6,13 @@ from models import Calendar, Task
 
 
 def calendar_read(request):
-  cid = int(request.GET['id'])
-  return HttpResponse(json.dumps(Calendar.objects.get(id=cid).__dict__))
+  assert request.method == "GET"
+  assert 'id' in request.GET
+  calendar = Calendar.objects.get(id=int(request.GET['id']))
+  # django adds a _state key to objects so we need to copy and delete it first
+  cal_dict = dict(calendar.__dict__)
+  del cal_dict['_state']
+  return HttpResponse(json.dumps(cal_dict))
 
 
 def task_create(request):
@@ -17,16 +22,25 @@ def task_create(request):
 
 
 def task_read(request):
-  tid = int(request.GET['id'])
-  return HttpResponse(json.dumps(Task.objects.get(id=tid).__dict__))
+  assert request.method == 'GET'
+  assert 'id' in request.GET
+  task = Task.objects.get(id=int(request.GET['id']))
+  # django adds a _state key to objects so we need to copy and delete it first
+  task_dict = dict(task.__dict__)
+  del task_dict['_state']
+  # additionally, datetime isn't serializble, so we need to make it a string
+  task_dict['date'] = str(task_dict['date'])
+  return HttpResponse(json.dumps(task_dict))
 
 
-def task_update(request, id):
+def task_update(request):
   assert request.method == 'POST'
   Task.objects.update(**request.POST)
   return HttpResponse()
 
 
-def task_destroy(request, id):
-  Task.objects.get(id=int(id)).delete()
+def task_destroy(request):
+  assert request.method == 'POST'
+  assert 'id' in request.POST
+  Task.objects.get(id=int(request.POST['id'])).delete()
   return HttpResponse()

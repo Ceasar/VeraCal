@@ -4,11 +4,11 @@ background: #222;
 }
 
 .wrapper{ 
-background: #fff url(../images/skin1/bg.png) repeat-x left top;
+background: #fff url(/images/skin1/bg.png) repeat-x left top;
 }
 
 #subpage .wrapper{
-background: #fff url(../images/skin1/bg.png) repeat-x 0 -370px;
+background: #fff url(/images/skin1/bg.png) repeat-x 0 -370px;
 }
 
 #footerwrap, #subpage #footerwrap{
@@ -16,7 +16,7 @@ background: #222;
 }
 
 #top .logo a, #top .logo a:hover{
-background: transparent url(../images/skin1/logo.png) no-repeat left top;
+background: transparent url(/images/skin1/logo.png) no-repeat left top;
 }
 
 #nav li a{
@@ -47,16 +47,16 @@ border-top:1px solid #484848;
 /*featured*/
 
 #featured{
-background:transparent url(../images/skin1/shadow.jpg) no-repeat scroll 0px 368px;
+background:transparent url(/images/skin1/shadow.jpg) no-repeat scroll 0px 368px;
 }
 
 /*infotext*/
 #infotext{
-background:transparent url(../images/skin1/bg_infotext.png) no-repeat scroll 0px -1px;
+background:transparent url(/images/skin1/bg_infotext.png) no-repeat scroll 0px -1px;
 }
 
 #infotext h2{
-background:transparent url(../images/skin1/bg_infotext.png) no-repeat scroll center bottom;
+background:transparent url(/images/skin1/bg_infotext.png) no-repeat scroll center bottom;
 color:#555555;
 }
 
@@ -71,21 +71,21 @@ border-bottom:1px solid #d6d6d6;
 }
 
 #sidebar .box a{
-background:transparent url(../images/skin1/bullet_orange.png) no-repeat scroll left center;
+background:transparent url(/images/skin1/bullet_orange.png) no-repeat scroll left center;
 border-bottom:1px solid #d6d6d6;
 }
 
 #sidebar .box ul ul a{
-background:transparent url(../images/skin1/bullet_black.png) no-repeat scroll 10px center;
+background:transparent url(/images/skin1/bullet_black.png) no-repeat scroll 10px center;
 }
 #sidebar .box ul ul ul a{
-background:transparent url(../images/skin1/bullet_black.png) no-repeat scroll 20px center;
+background:transparent url(/images/skin1/bullet_black.png) no-repeat scroll 20px center;
 }
 #sidebar .box ul ul ul ula{
-background:transparent url(../images/skin1/bullet_black.png) no-repeat scroll 30px center;
+background:transparent url(/images/skin1/bullet_black.png) no-repeat scroll 30px center;
 }
 #sidebar .box ul ul ul ul ul a{
-background:transparent url(../images/skin1/bullet_black.png) no-repeat scroll 40px center;
+background:transparent url(/images/skin1/bullet_black.png) no-repeat scroll 40px center;
 }
 
 
@@ -134,16 +134,16 @@ border-top:1px solid #4a4a4a;
 
 #footer .box ul li a{
 border-bottom:1px solid #4a4a4a;
-background: transparent url(../images/skin1/bullet_grey.png) center left no-repeat;
+background: transparent url(/images/skin1/bullet_grey.png) center left no-repeat;
 }
 
 #footer .box ul li a:hover{
-background: #262626 url(../images/skin1/bullet_grey.png) center left no-repeat;
+background: #262626 url(/images/skin1/bullet_grey.png) center left no-repeat;
 color:#fff;
 }
 
 #footer .custom_button{
-background: #494949 url(../images/skin1/mail.png) 170px center  no-repeat;
+background: #494949 url(/images/skin1/mail.png) 170px center  no-repeat;
 color: #fff;
 }
 
@@ -157,7 +157,7 @@ color:#ccc;
 }
 
 #footer #searchsubmit{
-background: transparent url(../images/skin1/search.png) 2px center  no-repeat;
+background: transparent url(/images/skin1/search.png) 2px center  no-repeat;
 border-left:1px solid #222;
 }
 
@@ -168,7 +168,7 @@ border-left:1px solid #222;
 
 
 .more-link{
-background:transparent url(../images/skin1/bullet_orange.png) no-repeat scroll right 15px;
+background:transparent url(/images/skin1/bullet_orange.png) no-repeat scroll right 15px;
 }
 
 input, select, textarea{
