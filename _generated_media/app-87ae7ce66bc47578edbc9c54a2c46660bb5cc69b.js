@@ -4,7 +4,7 @@ $(function(){
   });
 
 
-  window.TaskList = Backbone.Collection.extend({
+  window.Tasks = Backbone.Collection.extend({
     urlRoot: TASK_API,
     model: Task,
 
@@ -13,8 +13,6 @@ $(function(){
     }
   });
 
-
-  window.Tasks = new TaskList;
 
 
   window.TaskView = Backbone.View.extend({
@@ -32,6 +30,25 @@ $(function(){
               return this;
             }
   });
+
+
+
+ window.DetailApp = Backbone.View.extend({
+        events: {
+            'click .home': 'home'
+        },
+        
+        home: function(e){
+            this.trigger('home');
+            e.preventDefault();
+        },
+
+        render: function(){
+            $(this.el).html(ich.detailApp(this.model.toJSON()));
+            return this;
+        }                                        
+    });
+
 
   window.InputView = Backbone.View.extend({
     events: {
