@@ -49,8 +49,8 @@ MEDIA_BUNDLES = (
 
     ('backbone.js',
     'js/backbone-0.5.3.min.js'),
-    ('calendar.js',
-    'js/calender.js'),
+    ('app.js',
+    'js/app.js'),
     ('ICanHaz.js',
     'js/ICanHaz.js'),
     ('backbone-tastypie.js',
