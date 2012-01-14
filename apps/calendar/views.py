@@ -13,9 +13,13 @@ def calendar(request):
 
 def calendar_read(request):
   assert request.method == "GET"
-  assert 'id' in request.GET
-  calendar = Calendar.objects.get(id=int(request.GET['id']))
-  return HttpResponse(json.dumps(calendar.to_json()))
+  if 'id' in request.GET:
+    calendar = Calendar.objects.get(id=int(request.GET['id']))
+    return HttpResponse(json.dumps(calendar.to_json()))
+  else:
+    calendars = Calendar.objects.all()
+    return HttpResponse(json.dumps(
+      [calendar.to_json() for calendar in calendars]))
 
 
 def task_create(request):
@@ -26,9 +30,13 @@ def task_create(request):
 
 def task_read(request):
   assert request.method == 'GET'
-  assert 'id' in request.GET
-  task = Task.objects.get(id=int(request.GET['id']))
-  return HttpResponse(json.dumps(task.to_json()))
+  if 'id' in request.GET:
+    task = Task.objects.get(id=int(request.GET['id']))
+    return HttpResponse(json.dumps(task.to_json()))
+  else:
+    tasks = Task.objects.all()
+    return HttpResponse(json.dumps([task.to_json() for task in tasks]))
+    
 
 
 def task_update(request):
