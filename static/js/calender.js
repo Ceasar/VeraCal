@@ -1,115 +1,162 @@
 $(function(){
-
-
   window.Task = Backbone.Model.extend({
-    defaults: function() {
-                return {
-                  done: false,
-                  priority: 0
-                };
-              }
+    urlRoot: TASK_API
   });
 
 
   window.TaskList = Backbone.Collection.extend({
+    urlRoot: TASK_API,
     model: Task,
 
-    // Backbone sync is probably what we really want.
-    localStorage: new Store("todos"),
-
-    done: function() {
-      return this.filter(function(task){ return task.get('done'); });
-    },
-
-    remaining: function() {
-       return this.without.apply(this, this.done());
-     },
-
     comparator: function(task) {
-                 return task.get('priority');
-               }
-
+      return task.get('priority');
+    }
   });
 
-  
+
   window.Tasks = new TaskList;
 
 
   window.TaskView = Backbone.View.extend({
     tagName: 'li',
-
-    // Don't really get this line.
-    template: _.tempalte($('#item-template').html()),
+    className: 'task',
 
     events: {},
 
     initialize: function() {
+      this.model.bind('change', this.render, this);
     },
 
     render: function() {
+              $(this.el).html(ich.taskTemplate(this.model.toJSON()));
               return this;
+            }
+  });
+
+  window.InputView = Backbone.View.extend({
+    events: {
+              'click .task': 'createTask',
+    'keypress #message': 'createOnEnter'
             },
 
-    toggleDone: function() {
-                  this.model.toggle();
+    createOnEnter: function(e){
+                     if((e.keyCode || e.which) == 13){
+                       this.createTask();
+                       e.preventDefault();
+                     }
+
+                   },
+
+    createTask: function(){
+                   var message = this.$('#message').val();
+                   if(message){
+                     this.collection.create({
+                       message: message
+                     });
+                     this.$('#message').val('');
+                   }
+                 }
+
+  });
+
+  window.ListView = Backbone.View.extend({
+    initialize: function(){
+                  _.bindAll(this, 'addOne', 'addAll');
+
+                  this.collection.bind('add', this.addOne);
+                  this.collection.bind('reset', this.addAll, this);
+                  this.views = [];
                 },
 
-    edit: function() {
-            $(this.el).addClass('editing');
-            this.input.focus();
-          },
-
-    close: function() {
-             this.model.save({text: this.input.val()});
-             $(this.el).removeClass('editing');
-           },
-
-    updateOnEnter: function(e) {
-                     if (e.keyCode === 13) this.close();
-                   },
-
-    remove: function() {
-              $(this.el).remove();
+    addAll: function(){
+              this.views = [];
+              this.collection.each(this.addOne);
             },
 
-    clear: function() {
-             this.model.destroy();
-           }
+    addOne: function(task){
+              var view = new TaskView({
+                model: task
+              });
+              $(this.el).prepend(view.render().el);
+              this.views.push(view);
+              view.bind('all', this.rethrow, this);
+            },
+
+    rethrow: function(){
+               this.trigger.apply(this, arguments);
+             }
+
   });
 
+  window.ListApp = Backbone.View.extend({
+    el: "#app",
 
-  window.AppView = Backbone.View.extend({
-    el: $('#main'), // Change to high level dom element
-
-    events: {},
-
-    initialize: function() {
-      this.input = this.$('#new-task');
+    rethrow: function(){
+      this.trigger.apply(this, arguments);
     },
 
-    addOne: function(task) {
-              var view = new TaskView({model: task});
-              this.$("#task-list").append(view.render().el);
-            },
-
-    addAll: function() {
-              Tasks.each(this.addOne);
-            },
-
-    createOnEnter: function(e) {
-                     var text = this.input.val();
-                     if (!text || e.keyCode != 13) return;
-                     Tasks.create({name: text});
-                     this.input.val('');
-                   },
-
-    clearCompleted: function() {
-                      _.each(Tasks.done(), function(task){ task.destroy() });
-                      return false;
-                    }
+    render: function(){
+              $(this.el).html(ich.listApp({}));
+              var list = new ListView({
+                collection: this.collection,
+                  el: this.$('#tasks')
+              });
+              list.addAll();
+              list.bind('all', this.rethrow, this);
+              new InputView({
+                collection: this.collection,
+                  el: this.$('#input')
+              });
+            }        
   });
 
 
-  window.App = new AppView;
+  window.Router = Backbone.Router.extend({
+    routes: {
+              '': 'list',
+    ':id/': 'detail'
+            },
 
-});
+    navigate_to: function(model){
+                   var path = (model && model.get('id') + '/') || '';
+                   this.navigate(path, true);
+                 },
+
+    detail: function(){},
+
+    list: function(){}
+  });
+
+  $(function(){
+    window.app = window.app || {};
+    app.router = new Router();
+    app.tasks = new Tasks();
+    app.list = new ListApp({
+      el: $("#app"),
+      collection: app.tasks
+    });
+    app.detail = new DetailApp({
+      el: $("#app")
+    });
+    app.router.bind('route:list', function(){
+      app.tasks.maybeFetch({
+        success: _.bind(app.list.render, app.list)                
+      });
+    });
+    app.router.bind('route:detail', function(id){
+      app.tasks.getOrFetch(app.tasks.urlRoot + id + '/', {
+        success: function(model){
+                   app.detail.model = model;
+                   app.detail.render();                    
+                 }
+      });
+    });
+
+    app.list.bind('navigate', app.router.navigate_to, app.router);
+    app.detail.bind('home', app.router.navigate_to, app.router);
+    Backbone.history.start({
+      pushState: true, 
+      silent: app.loaded
+    });
+  });
+})();
