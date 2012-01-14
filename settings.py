@@ -103,7 +103,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'PennApps2012S.urls'
+ROOT_URLCONF = 'PennApps2012.urls'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_PATH, 'templates'),
@@ -119,9 +119,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'registration',
     'django.contrib.admin',
     # 'django.contrib.admindocs',
+    'apps.calendar',
+    'apps.registration',
 )
 
 # A sample logging configuration. The only tangible logging
