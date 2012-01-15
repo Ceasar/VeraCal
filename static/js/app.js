@@ -169,6 +169,7 @@ $(function() {
     initialize: function() {
       var that = this;
       this._taskViews = [];
+      this.bind("add", this.render);
 
       this.collection.bind("reset", function() {
         this.each(function(task) {
@@ -290,8 +291,24 @@ $(function() {
         priority: $('priority :input').val()});
 
          new_task.save();
-// add to collection
-// rerender whole collection       
+
+         date = new_task.get('date');
+
+         if (date >= now) {
+           if (date == now) {
+             Day.add(new_task);
+           } else if (date <= Date(week)) {
+             Week.add(new_task);
+           } else if (date <= Date(twoWeek)) {
+             Fortnight.add(new_task);
+           } else if (date <= Date(month)) {
+             Month.add(new_task);
+           } else if (date <= Date(quarter)) {
+             Quarter.add(new_task);
+           } else if (date <= Date(year)) {
+             Year.add(new_task);
+           }
+         }
         return false;
     });
 
