@@ -264,12 +264,18 @@ top:2px;
     top: 70px;
     width: 380px;
     padding: 10px;
-    left: 270px;
-    left: -9999px;
     z-index: 40;
     box-shadow: 0 0 5px #333;
     
     @include simple-gradient(darken(#404040, 15%), lighten(#404040, 5%));
+    
+    &.hidden {
+        left: -9999px;
+    }
+    
+    &.show {
+      left: 270px;
+    }
     
     h1, label {
       color: #fff;
@@ -345,6 +351,7 @@ top:2px;
     
     h3 {
       font-size: 14px;
+      line-height: 1.2;
     }
     
     .importance {

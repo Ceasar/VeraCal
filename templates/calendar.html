@@ -17,9 +17,9 @@
 
 
 {% block content %}
-<div id="add-btn"><a href="#new_task" class="large primary btn">Add Task</a></div>
+<div id="add-btn"><a onclick="$('#new_task').addClass('show').removeClass('hidden')" href="#new_task" class="large primary btn">Add Task</a></div>
 
-<form action="#" method="" id="new_task">
+<form action="#" method="" class="hidden" id="new_task">
   <h1>Create Task</h1>				
   <p>
     <label class="grey" for="signup">Task Title: </label>

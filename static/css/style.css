@@ -187,8 +187,6 @@ body {
     top: 70px;
     width: 380px;
     padding: 10px;
-    left: 270px;
-    left: -9999px;
     z-index: 40;
     box-shadow: 0 0 5px #333;
     background-color: #1a1a1a;
@@ -203,6 +201,10 @@ body {
     background-image: -o-linear-gradient(top, #1a1a1a, #4d4d4d);
     /* Opera 11.10+ */
     background-image: linear-gradient(top, #1a1a1a, #4d4d4d); }
+    #content #new_task.hidden {
+      left: -9999px; }
+    #content #new_task.show {
+      left: 270px; }
     #content #new_task h1, #content #new_task label {
       color: #fff;
       font-weight: bold;
@@ -252,7 +254,8 @@ body {
     padding: 5px 10px;
     position: relative; }
     #content .task-item h3 {
-      font-size: 14px; }
+      font-size: 14px;
+      line-height: 1.2; }
     #content .task-item .importance {
       position: absolute;
       top: 0;
