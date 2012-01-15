@@ -13,7 +13,7 @@ class Calendar(models.Model):
 
 
 class Task(models.Model):
-  calender = models.ForeignKey(Calendar)
+  calendar = models.ForeignKey(Calendar)
   date = models.DateField()
   name = models.CharField(max_length=100)
   priority = models.IntegerField()
