@@ -10,10 +10,33 @@
 {% include_media 'prettyPhoto.css' %}  
 {% include_media 'ICanHaz.js' %}
 {% include_media 'app.js' %}
+<<<<<<< HEAD
+=======
+<script type="text/html" id="taskTemplate">
+  {% straight_include "taskTemplate.mustache" %}
+</script>
+
+<script type="text/html" id="listApp">
+  {% straight_include "listApp.mustache" %}
+</script>
+
+<script type="text/html" id="detailApp">
+  {% straight_include "detailApp.mustache" %}
+</script>
+
+<style type="text/css">
+
+* {
+  color: #fff !important;
+}
+
+</style>
+>>>>>>> e665c7392c08fe7576745407d4b087b5c7145cd9
 {% endblock %}
 
 {% block content %}
 <body>
+<<<<<<< HEAD
 <div id="result"></div>
 <form action="#" method="" id="new_task">
 					<h1>Create Task</h1>				
@@ -31,5 +54,10 @@
   <div id="app">
   
   </div>
+=======
+  <div id="today"></div>
+  <div id="month"></div>
+  <div id="year"></div>
+>>>>>>> e665c7392c08fe7576745407d4b087b5c7145cd9
 </body>
 {% endblock %}
