@@ -29,7 +29,8 @@ class TaskResource(ModelResource):
   class Meta:
     queryset = Task.objects.all()
     filtering = {
-        'calendar': ALL_WITH_RELATIONS
+        'calendar': ALL_WITH_RELATIONS,
+        'date': ALL
         }
 
   def dehydrate(self, bundle):
