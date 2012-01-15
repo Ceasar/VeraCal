@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+
 {% block head %}
 
 {% load media %}
@@ -11,6 +11,17 @@
 {% include_media 'prettyPhoto.css' %}  
 {% include_media 'ICanHaz.js' %}
 {% include_media 'app.js' %}
+<script type="text/html" id="taskTemplate">
+  {% straight_include "taskTemplate.mustache" %}
+</script>
+
+<script type="text/html" id="listApp">
+  {% straight_include "listApp.mustache" %}
+</script>
+
+<script type="text/html" id="detailApp">
+  {% straight_include "detailApp.mustache" %}
+</script>
 
 <style type="text/css">
 
@@ -19,6 +30,23 @@
 
 {% block content %}
 <body>
+<div id="result"></div>
+<form action="#" method="" id="new_task">
+					<h1>Create Task</h1>				
+					<label class="grey" for="signup">Task Title:</label>
+					<input class="field" type="text" name="name" id="name" size="23" />
+					<p><label class="grey" for="email">Date:</label>
+					<input class="field" type="text" name="date" id="date" size="23" /><p>
+                    <label class="grey" for="log">Priority</label>
+					<input class="field" type="text" name="priority" id="priority" value="" size="23" />
+					<input type="submit" name="submit" value="Add task" class="bt_register" />
+				</form>
+			</div>
+		</div>
+</div>
+  <div id="app">
+  
+  </div>
   <div id="today"></div>
   <div id="month"></div>
   <div id="year"></div>

@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-=======
+
 var task1, task2, task3, task4, task4View, taskViews = [];
->>>>>>> e665c7392c08fe7576745407d4b087b5c7145cd9
+
 
 $(function() {
   
@@ -149,21 +148,21 @@ $(function() {
       var that = this;
       $(this.el).empty();
 
-<<<<<<< HEAD
+
   var methodMap = {
     'create': 'POST',
     'update': 'PUT',
     'delete': 'DELETE',
     'read'  : 'GET'
   };
-=======
+
       _(this._taskViews).each(function(dv) {
         $(that.el).append(dv.render().el);
       });
     }
   });
 
->>>>>>> e665c7392c08fe7576745407d4b087b5c7145cd9
+
 
   dayView = new TasksView({
     collection: new Day(),
@@ -189,7 +188,7 @@ $(function() {
   };
 
 // required for saving
-<<<<<<< HEAD
+
 Backbone.sync = function(method, model, options){
     var type = methodMap[method];
     var params = _.extend({
@@ -267,11 +266,11 @@ TaskView = Backbone.View.extend({
    }
 });     
 //});
-=======
+
       Backbone.sync = function(method, model) {
   console.log(method + ": " + JSON.stringify(model));
   model.id = 1;
 };
   
 });
->>>>>>> e665c7392c08fe7576745407d4b087b5c7145cd9
+
