@@ -100,13 +100,6 @@ $(function() {
 
     initialize: function(options) {
       this.fetch();
-      this.bind("reset", function() {
-        console.log("done");
-        this.each(function (task) {
-          var view = new TaskView({ model: task });
-          $("#app").append(view.render().el);
-        });
-      });
     },
         
     parse: function(response) {
@@ -131,10 +124,44 @@ $(function() {
     url: 'api/v1/task/?date__year='+now.getFullYear(),
     });
 
+  /* Collection Views  */
+  TasksView = Backbone.View.extend({
+    initialize: function() {
+      var that = this;
+      this._taskViews = [];
+
+      this.collection.bind("reset", function() {
+        this.each(function(task) {
+          var view = new TaskView({model: task});
+          that._taskViews.push(new TaskView({
+            model: task,
+            tagName: 'li'
+          }));
+        });
+        that.render();
+      });
+    },
+
+    render: function() {
+      var that = this;
+      $(this.el).empty();
+
+      _(this._taskViews).each(function(dv) {
+        $(that.el).append(dv.render().el);
+      });
+    }
+  });
+
 
   today = new Day();
   month = new Month();
   year = new Year();
+
+  todayView = new TasksView({
+    collection: today,
+    el: $('#app')
+  });
+  todayView.render();
 
 
 // required for saving
