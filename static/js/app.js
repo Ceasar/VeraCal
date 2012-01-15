@@ -76,19 +76,8 @@ $(function() {
     , className: "task-item"
     
     , initialize: function() {
-/*       _.bindAll(this, 'render', 'close'); */
-/*       this.model.bind('change', this.render); */
       this.model.view = this;
       
-/*
-      this.id = "task-" + this.model.get('id');
-      console.log(this.id + ' ' + this.model.get('name'));
-      this.render();
-      this.model.bind('change', function() {
-        console.log('model: ' + this.model.get('name'));
-        this.render();
-      });
-*/
     }
         
     , render: function() {
@@ -100,19 +89,25 @@ $(function() {
   });
   
   
-  
- /*
- task4 = new Task( { url: '1' } );
-  task4View = new TaskView({ model: task4 });
-*/
-
   now = new Date();
- 
-  window.Day = Backbone.Collection.extend({
+  today = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
+
+
+  /* Abstract Task collection. */
+  Tasks = Backbone.Collection.extend({
 
     model: Task,
-    
-    url: '/api/v1/task/?format=json&calendar_id=1&date='+ now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate(),
+
+    initialize: function(options) {
+      this.fetch();
+      this.bind("reset", function() {
+        console.log("done");
+        this.each(function (task) {
+          var view = new TaskView({ model: task });
+          $("#app").append(view.render().el);
+        });
+      });
+    },
         
     parse: function(response) {
         return response.objects;
@@ -122,46 +117,24 @@ $(function() {
         return task.get('priority');}
         
    });
+ 
+  /* Tasks for Today */
+  window.Day = Tasks.extend({
+    url: '/api/v1/task/?calendar_id=1&date='+today,
+   });
+
+  window.Month = Tasks.extend({
+    url: 'api/v1/task/?date__month='+(now.getMonth()+1),
+    });
+
+  window.Year = Tasks.extend({
+    url: 'api/v1/task/?date__year='+now.getFullYear(),
+    });
+
 
   today = new Day();
-  today.fetch();
-  today.bind("reset", function() {
-    console.log("done");
-    today.each(function (task) {
-      var view = new TaskView({ model: task });
-      $("#app").append(view.render().el);
-    });
-  });
-
-Month = Backbone.Collection.extend({
-    model: Task,
-    url: 'api/v1/task/?format=json&date__month='+(now.getMonth()+1),
-    parse: function(response){
-        return response.objects;
-        },
-    comparator: function(task){
-        return task.get('priority');
-      }
-    });
-
-
-Year = Backbone.Collection.extend({
-    model: Task,
-    url: 'api/v1/task/?format=json&date__year='+now.getFullYear(),
-    parse: function(response){
-        return response.objects;
-        },
-    comparator: function(task){
-        return task.get('priority');
-      }
-    });
-
-
-/*  
-  cal = new Calendar([task1, task2, task3]);
-*/
-
-
+  month = new Month();
+  year = new Year();
 
 
 // required for saving
