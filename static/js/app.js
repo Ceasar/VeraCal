@@ -67,11 +67,33 @@ var task1, task2, task3, task4;
 	  }
 	  , error: function(model, response) {
 	      console.log("Failure. Model: " + model.toString() + "\n response: " + response);
-	  }
-});
+	  }});
+
+ now = new Date();
+
+Day = Backbone.Collection.extend({
+    model: Task,
+    url: '/api/v1/task/?format=json&calendar__id=1&date='+ now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate(),
+    parse: function(response) {
+        return response.objects;
+        },
+
+    comparator: function(task){
+        return task.get('priority');}
+
+ });
+
+Day.data = function(){ 
+    Days = new Day();
+    Days.fetch({async: false});
+};
+    
+
+
+
   
   cal = new Calendar([task1, task2, task3]);
 
-  
+      
   
 //});
