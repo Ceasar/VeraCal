@@ -1,16 +1,29 @@
-var task1, task2, task3, task4;
+var task1, task2, task3, task4, task4View, taskViews = [];
 
-//$(function() {
+$(function() {
   
   /**
    * Model: Task
    * name, date, importance
    */
   window.Task = Backbone.Model.extend({
-    urlRoot: '/api/v1/task/',
+    urlRoot: '/api/v1/task/'
   
-    initialize: function() {
+    , initialize: function() {
       console.log("New task: " + JSON.stringify(this.toJSON()));
+      if (this.url) {
+        console.log("URL provided: fetching");
+        this.fetch({
+      	  success: function(model, response) {
+	          console.log("Success!: " + model.toString() + "\n response: " + 
+               			   response);
+      	  }
+      	  , error: function(model, response) {
+	           console.log("Failure. Model: " + model.toString() + "\n response: " + 
+	                       response);
+      	  }
+        });     
+      }
     }
     
     , defaults: function() {
@@ -30,6 +43,7 @@ var task1, task2, task3, task4;
    
   window.Calendar = Backbone.Collection.extend({
 	  //urlRoot: '/api/v1/calendar',
+
   
     initialize: function() {
       console.log("New calendar: " + JSON.stringify(this.toJSON()));
@@ -67,14 +81,21 @@ var task1, task2, task3, task4;
     
     initialize: function() {
       this.render();
+      this.model.bind('change', function() {
+        console.log('model: ' + this.model.get('name'));
+        this.render();
+      });
     }
     
+/*     , el: $("#app") */
+    
     , render: function() {
-      var template = _.template( '<h3><%= name %></h3>', {
-          name: this.model.get('name')
-        });
-      this.el.html(template);
+/*       if (this.model) { */
+        var template = _.template( '<h3><%= name %></h3>',
+                                  { name: this.model.get('name') });
+        this.el.html(template);
 /*       $(this.el).html(this.template(this.model.toJSON())); */
+/*       } */
     }
     
 /*
@@ -101,6 +122,8 @@ var task1, task2, task3, task4;
   
   
   task4 = new Task( { url: '1' } );
+  task4View = new TaskView({ model: task4, el: $("#app") });
+/*
   task4.fetch({
 	  success: function(model, response) {
 	      console.log("Success!: " + model.toString() + "\n response: " + 
@@ -109,8 +132,7 @@ var task1, task2, task3, task4;
 	  , error: function(model, response) {
 	      console.log("Failure. Model: " + model.toString() + "\n response: " + response);
 	  }});
-
-  task4View = new TaskView({ model: task4, el: $("#app") });
+*/
 
 /*
  now = new Date();
@@ -143,4 +165,4 @@ Day.data = function(){
 
       
   
-//});
+});
