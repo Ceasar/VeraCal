@@ -10,19 +10,27 @@ http://127.0.0.1:8000/api/resource/set/1;3/?format=json
 """
 
 from tastypie import fields
-from tastypie.resources import ModelResource
+from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 
 from apps.calendar.models import Calendar, Task
 
 
 class CalendarResource(ModelResource):
+  tasks = fields.ToManyField('apps.calendar.api.resources.TaskResource', 'tasks')
   class Meta:
     queryset = Calendar.objects.all()
+    filtering = {
+        'id': ALL
+        }
 
 
 class TaskResource(ModelResource):
+  calendar = fields.ToOneField(CalendarResource, 'calendar')
   class Meta:
     queryset = Task.objects.all()
+    filtering = {
+        'calendar': ALL_WITH_RELATIONS
+        }
 
   def dehydrate(self, bundle):
     bundle.data['cid'] = bundle.obj.calendar.id
