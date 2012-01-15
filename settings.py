@@ -171,7 +171,6 @@ INSTALLED_APPS = (
     'mediagenerator',
     # 'django.contrib.admindocs',
     'apps.calendar',
-    'apps.registration',
     'tastypie',
 )
 
