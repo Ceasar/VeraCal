@@ -13,7 +13,7 @@ from tastypie import fields
 from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 
 from apps.calendar.models import Calendar, Task
-
+from tastypie.authorization import Authorization
 
 class CalendarResource(ModelResource):
   tasks = fields.ToManyField('apps.calendar.api.resources.TaskResource', 'tasks')
@@ -22,8 +22,9 @@ class CalendarResource(ModelResource):
     filtering = {
         'id': ALL
         }
-
-
+class Authorization(Authorization):
+    def is_authoirzed(self, request, object=None):
+        return True
 class TaskResource(ModelResource):
   calendar = fields.ToOneField(CalendarResource, 'calendar')
   class Meta:
