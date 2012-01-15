@@ -153,15 +153,23 @@ $(function() {
   });
 
 
-  today = new Day();
-  month = new Month();
-  year = new Year();
-
-  todayView = new TasksView({
-    collection: today,
-    el: $('#app')
+  dayView = new TasksView({
+    collection: new Day(),
+    el: $('#today')
   });
-  todayView.render();
+  dayView.render();
+
+  monthView = new TasksView({
+    collection: new Month(),
+    el: $('#month')
+  });
+  monthView.render();
+
+  yearView = new TasksView({
+    collection: new Year(),
+    el: $('#year')
+  });
+  yearView.render();
 
 
 // required for saving

@@ -41,10 +41,8 @@
 
 {% block content %}
 <body>
-  <div id="app">
-    {% if data %}
-    {% mustache "detailApp" data %}
-    {% endif %}
-  </div>
+  <div id="today"></div>
+  <div id="month"></div>
+  <div id="year"></div>
 </body>
 {% endblock %}
