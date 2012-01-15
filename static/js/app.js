@@ -83,12 +83,27 @@ Day = Backbone.Collection.extend({
 
  });
 
-Day.data = function(){ 
-    Days = new Day();
-    Days.fetch({async: false});
-};
-    
+Month = Backbone.Collection.extend({
+    model: Task,
+    url: 'api/v1/task/?format=json&date__month='+(now.getMonth()+1),
+    parse: function(response){
+        return response.objects;
+        },
+    comparator: function(task){
+        return task.get('priority');}
 
+    });
+
+
+Year = Backbone.Collection.extend({
+    model: Task,
+    url: 'api/v1/task/?format=json&date__year='+now.getFullYear(),
+    parse: function(response){
+        return response.objects;
+        },
+    comparator: function(task){
+        return task.get('priority');}
+    });
 
 
   
