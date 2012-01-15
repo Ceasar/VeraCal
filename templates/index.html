@@ -1,1 +1,215 @@
-hi!
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<head>
+{% load media %}
+{% include_media 'style.css' %}
+{% include_media 'style1.css' %}
+{% include_media 'prettyPhoto.css' %}
+{% include_media 'jquery.js' %}
+{% include_media 'slideshow/js/swfobject/swfobject.js'%}
+{% include_media 'slide.js' %}
+{% include_media 'custom.js' %}
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Veracal</title>
+
+	<script type="text/javascript">
+		var flashvars = {};
+		flashvars.xml = "media/slideshow/config.xml";
+		flashvars.font = "font.swf";
+		var attributes = {};
+		attributes.wmode = "transparent";
+		attributes.id = "slider";
+		swfobject.embedSWF("media/cu3er.swf", "featured_image", "940", "420", "9", "media/expressInstall.swf", flashvars, attributes);
+	</script>	
+	<!--[if IE 6]>
+	<script type='text/javascript' src='js/dd_belated_png.js'></script>
+	<script>DD_belatedPNG.fix('.ie6fix');</script>
+	<style>#footer .box ul li a, #sidebar .box ul a {zoom:1;}</style>
+	<![endif]-->
+</head>
+<body id='frontpage'>
+<div id="toppanel">
+	<div id="panel">
+		<div class="content clearfix">
+			<div class="left">
+				<h1>Welcome to Veracal</h1>	
+				<p class="grey">Welcome to your calendar, personalized</p>
+			</div>
+			<div class="left">
+				<form class="clearfix" action="#" method="post">
+					<h1>Member Login</h1>
+					<label class="grey" for="log">Username:</label>
+					<input class="field" type="text" name="log" id="log" value="" size="23" />
+					<label class="grey" for="pwd">Password:</label>
+					<input class="field" type="password" name="pwd" id="pwd" size="23" />
+	            	<label><input name="rememberme" id="rememberme" type="checkbox" checked="checked" value="forever" /> &nbsp;Remember me</label>
+        			<div class="clear"></div>
+					<input type="submit" name="submit" value="Login" class="bt_login" />
+					<a class="lost-pwd" href="#">Lost your password?</a>
+				</form>
+			</div>
+			<div class="left right">			
+				<form action="#" method="post">
+					<h1>Not a member yet? Sign Up!</h1>				
+					<label class="grey" for="signup">Username:</label>
+					<input class="field" type="text" name="signup" id="signup" value="" size="23" />
+					<label class="grey" for="email">Email:</label>
+					<input class="field" type="text" name="email" id="email" size="23" />
+					<label>A password will be e-mailed to you.</label>
+
+					<input type="submit" name="submit" value="Register" class="bt_register" />
+				</form>
+			</div>
+		</div>
+</div>
+	<div class="tab">
+		<ul class="login">
+			<li class="left">&nbsp;</li>
+			<li>Welcome</li>
+			<li class="sep">|</li>
+			<li id="toggle">
+				<a id="open" class="open" href="#" style="text-decoration: none">Log In | Register</a>
+				<a id="close" style="display: none;" class="close" href="#" style="text-decoration: none">Close</a>			
+			</li>
+			<li class="right">&nbsp;</li>
+		</ul> 
+	</div> 
+</div> 
+	</div>
+<div class='wrapper'>
+  <div id="top">
+		<div id="head">
+			<h1 class="logo ie6fix"><img src="/media
+/images/logo.png" alt="" width="259" height="77" /></h1>
+			<ul id="nav">
+		    <li class='current'><a href="index-2.html"><strong>Home</strong><span>&nbsp;</span></a></li>
+				<li><a href="page_fullwidth.html"><strong>Calendar</strong><span>&nbsp;</span></a>
+				<ul>
+					<li><a href="#">Custom Calendar</a></li>
+					<li><a href="#">Tasks</a></li>
+					<li><a href="#">Goals</a></li>
+					<li><a href='#'>Progress</a>
+						<ul>
+						<li><a href='#'>Daily Progress</a></li>
+						<li><a href='#'>Weekly Progress</a></li>
+						<li><a href='#'>Monthly Progress</a></li>
+						</ul>
+					</li>
+				  </ul>
+				</li>
+                <li><a href="blog.html"><strong>About</strong><span>&nbsp;</span></a></li>
+     			<li><a href="contact.php"><strong>Contact</strong><span>&nbsp;</span></a></li>
+		  </ul>
+				</li>
+			</ul>
+		</div>	
+		<div id="featured">
+			<div id="featured_image">
+				<a href="single.html" class='current_img'><img src="/media/files/bigpicture1.jpg" alt="" /></a>
+				<a href="single.html"><img src="/media/files/bigpicture2.jpg" alt="" /></a>
+                <a href="single.html"><img src="/media/files/bigpicture3.jpg" alt="" /></a>
+                <a href="single.html"><img src="/media/files/bigpicture4.jpg" alt="" /></a>
+                <a href="single.html"><img src="/media/files/bigpicture5.jpg" alt="" /></a>
+			</div>
+		</div>
+<div id="main">
+</div>
+				<a href="single.html" class='current_img'><img src="/media/images/bigpicture1.jpg" alt="" /></a>
+				<a href="single.html"><img src="/media/images/bigpicture2.jpg" alt="" /></a>
+			</div>
+		</div>
+		<div id="infotext">
+		<h2>Personalize your calendar by </h2>
+		</div>
+		<div id="main">
+			<div class="box box_small box1">
+				<img src="/media/images/medium1.jpg" alt="" />
+				<h3>Calendar, Personalized</h3>
+				<p>Explanation Here<a class="more-link" href="page.html">Read more</a>
+				</p>
+			</div>
+			<div class="box box_small box2">
+				<img src="/media/images/medium2.jpg" alt="" />
+				<h3>Flash</h3>
+				<p>Explanation here
+				<a class="more-link" href="page.html">Read more</a>
+				</p>
+			</div>
+			<div class="box box_small box3">
+				<img src="/media/images/medium3.jpg" alt="" />
+				<h3>jquery</h3>
+				<p>Explanation Here <a class="more-link" href="page.html">Read more</a>
+				</p>
+			</div>	
+		</div>	
+	</div>
+</div>
+<div class='wrapper' id='footerwrap'>
+	<div id='footer'>
+		<div class="box box_mini">
+			<h4>User Hub</h4>
+			<ul>
+				<li><a href="#">Preferences</a></li>
+				<li><a href="#">Goal Setting</a></li>
+				<li><a href="#">Community</a></li>
+				<li><a href="#">Learn More</a></li>
+			</ul>
+		</div>
+		<div class="box box_mini">
+			<h4>Navigation</h4>
+			<ul>
+				<li><a href="index-2.html">Home</a></li>
+				<li><a href="portfolio.html">Calendar</a></li>
+				<li><a href="contact.php">About</a></li>
+				<li><a href="page.html">Contact Us</a></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div class="box box_mini">
+			<h4>Categories</h4>
+			<ul>
+				<li><a href="#">Daily Tasks</a></li>
+				<li><a href="#">Weekly Tasks</a></li>
+				<li><a href="#">Monthly Tasks</a></li>
+				<li><a href="#">Long Term Tasks</a></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div class="box box_mini">
+			<h4>Miscellaneous</h4>
+			<ul>
+				<li><a href="page.html">Register</a></li>
+				<li><a href="page.html">Log in</a></li>
+				<li><a href="page.html">Terms of Service</a></li>
+				<li><a href="contact.php">Contact</a></li>
+				<li></li>
+			</ul>
+		</div>
+		<div class="box box_custom_footer">
+			<a href='contact.php' class='custom_button ie6fix rounded'><strong>Contact Form</strong><span>get in touch with us</span></a>
+			<div id='sitesearch_footer'>
+			<h4>Search Site</h4>
+				<form action="#" id="searchform" method="get">
+						<div><input type="text" class='rounded' id="s" name="s" value=""/>
+						<input type="submit" value="." id="searchsubmit" class="button ie6fix"/></div></form>
+			</div>
+			<p>Copyright 2012 Veracal</p>	
+			<ul class="social_bookmarks">
+				<li class='rss'><a class='ie6fix' href="#">RSS</a></li>
+				<li class='facebook'><a class='ie6fix' href="#">Facebook</a></li>
+				<li class='twitter'><a class='ie6fix' href="#">Twitter</a></li>
+				<li class='flickr'><a class='ie6fix' href="#">Flickr</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+</html>

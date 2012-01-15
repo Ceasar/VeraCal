@@ -1,6 +1,7 @@
 *.pyc
 *.swp
 *~
+venv
 
 # Numerous always-ignore extensions
 *.diff
@@ -41,3 +42,5 @@ dwsync.xml
 intermediate
 publish
 .idea
+
+
