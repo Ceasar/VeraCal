@@ -42,7 +42,7 @@ body {
 
 #nav {
   position: absolute;
-  right: 15px;
+  right: -10px;
   top: 30px;
   list-style-type: none;
   list-style-position: outside;
@@ -56,7 +56,7 @@ body {
   display: block;
   float: left;
   padding: 6px 10px;
-  width: 100px;
+  width: 80px;
   border: none;
   text-decoration: none;
   line-height: 18px;
@@ -176,25 +176,29 @@ body {
     width: 960px;
     border: 1px solid gray;
     border-width: 0 1px; }
+  #content #add-btn {
+    text-align: center;
+    padding: 10px 0;
+    margin: 0; }
   #content .col {
     width: 290px;
     /*     margin: 0 0 0 -10px; */
     margin: 0;
     padding: 0 20px 0 10px;
     /*     @include shadow-right; */ }
-  #content #col1 {
+  #content .col1 {
     z-index: 10;
     /*     background-color: #fff; */
     background: white url("images/edge-left.png") no-repeat center right; }
-  #content #col2 {
+  #content .col2 {
     z-index: 9;
     /*     background: rgb(231, 231, 231); */
     background: #e7e7e7 url("images/edge-right.png") no-repeat center right; }
-  #content #col3 {
+  #content .col3 {
     z-index: 8;
     background-color: #bebebe;
     margin: 0; }
-  #content #task-item {
+  #content .task-item {
     background-color: #e8f5fc;
     /*     @include all-rounded; */
     -webkit-box-shadow: inset 0 0 5px #333;
@@ -203,7 +207,7 @@ body {
     margin-bottom: 20px;
     padding: 10px;
     position: relative; }
-    #content #task-item .importance {
+    #content .task-item .importance {
       position: absolute;
       top: 0;
       right: 0;

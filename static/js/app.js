@@ -83,7 +83,10 @@ $(function() {
     }
         
     , render: function() {
-        var template = _.template( '<h3><%= name %></h3>', this.model.toJSON());
+        var templateText = '<h3><%= name %></h3>' +
+                           '<span class="importance"><%= importance %></span>';
+                           
+        var template = _.template( templateText, this.model.toJSON());
         $(this.el).html(template);
         return this;
     }
@@ -137,7 +140,7 @@ $(function() {
           var view = new TaskView({model: task});
           that._taskViews.push(new TaskView({
             model: task,
-            tagName: 'li'
+/*             tagName: 'li' */
           }));
         });
         that.render();
@@ -226,8 +229,7 @@ Backbone.sync = function(method, model, options){
 
 
 
-$.fn.serializeObject = function()
-{
+$.fn.serializeObject = function() {
     var o = {};
     var a = this.serializeArray();
     $.each(a, function() {
