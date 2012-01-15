@@ -287,6 +287,7 @@ top:2px;
   .container_12 {
     overflow: hidden;
     position: relative;
+    min-height: 500px;
   }
   
   .col {
@@ -295,6 +296,7 @@ top:2px;
     padding: 0 20px 0 10px;
     margin: 0 0 0 0;
     display: block;
+    min-height: 500px;
 /*
     float: none;
     position: absolute;
@@ -346,7 +348,7 @@ top:2px;
 /*     @include all-rounded; */
     @include inner-shadow;
     margin-bottom: 20px;
-    padding: 5px 10px;
+    padding: 10px;
     position: relative;
     
     h3 {
