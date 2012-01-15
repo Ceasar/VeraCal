@@ -72,57 +72,79 @@ $(function() {
    * View: Task
    */
   window.TaskView = Backbone.View.extend({
-  
-/*
     tagName: "div"
     , className: "task-item"
-    , template: _.template('<h3><% name %></h3>')
-*/
     
-    initialize: function() {
+    , initialize: function() {
+/*       _.bindAll(this, 'render', 'close'); */
+/*       this.model.bind('change', this.render); */
+      this.model.view = this;
+      
+/*
+      this.id = "task-" + this.model.get('id');
+      console.log(this.id + ' ' + this.model.get('name'));
       this.render();
       this.model.bind('change', function() {
         console.log('model: ' + this.model.get('name'));
         this.render();
       });
-    }
-    
-/*     , el: $("#app") */
-    
-    , render: function() {
-/*       if (this.model) { */
-        var template = _.template( '<h3><%= name %></h3>',
-                                  { name: this.model.get('name') });
-        this.el.html(template);
-/*       $(this.el).html(this.template(this.model.toJSON())); */
-/*       } */
-    }
-    
-/*
-    , setContent: function() {      
-      var content = this.model.get('content');
-      this.$('.todo-content').set("html", content);
-      this.$('.todo-input').setProperty("value", content);
-      
-      if (this.model.get('done')) {
-        this.$(".todo-check").setProperty("checked", "checked");
-        $(this.el).addClass("done");
-      } else {
-        this.$(".todo-check").removeProperty("checked");
-        $(this.el).removeClass("done");
-      }
-      
-      this.input = this.$(".todo-input");
-      this.input.addEvent('blur', this.close);
-    },
 */
+    }
+        
+    , render: function() {
+        var template = _.template( '<h3><%= name %></h3>', this.model.toJSON());
+        $(this.el).html(template);
+        return this;
+    }
   
   });
   
   
   
-  task4 = new Task( { url: '1' } );
-  task4View = new TaskView({ model: task4, el: $("#app") });
+ /*
+ task4 = new Task( { url: '1' } );
+  task4View = new TaskView({ model: task4 });
+*/
+
+  now = new Date();
+ 
+  window.Day = Backbone.Collection.extend({
+
+    model: Task,
+    
+    url: '/api/v1/task/?format=json&calendar_id=1&date='+ now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate(),
+        
+    parse: function(response) {
+        return response.objects;
+        },
+
+    comparator: function(task){
+        return task.get('priority');}
+        
+   });
+
+  today = new Day();
+  today.fetch();
+  today.bind("reset", function() {
+    console.log("done");
+    today.each(function (task) {
+      var view = new TaskView({ model: task });
+      $("#app").append(view.render().el);
+    });
+  });
+
+  
+ /*
+ window.CalView = Backbone.View.extend({
+  
+    el: $("#app")
+    
+    , initialize: function() {
+      this.
+    }
+  
+  });
+*/
 /*
   task4.fetch({
 	  success: function(model, response) {
@@ -134,32 +156,19 @@ $(function() {
 	  }});
 */
 
+
+
 /*
- now = new Date();
- 
-window.Day = Backbone.Collection.extend({
-    model: Task,
-    url: '/api/v1/task/?format=json&calendar__id=1&date='+ now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate(),
-    parse: function(response) {
-        return response.objects;
-        },
-
-    comparator: function(task){
-        return task.get('priority');}
-
- });
-
-TaskView = Backbone.View.extend
-
 Day.data = function(){ 
     Days = new Day();
     Days.fetch({async: false});
 };
+*/
     
 
 
 
-  
+/*  
   cal = new Calendar([task1, task2, task3]);
 */
 
