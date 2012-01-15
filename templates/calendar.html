@@ -19,22 +19,14 @@
 {% block content %}
 <div id="add-btn"><a onclick="$('#new_task').addClass('show').removeClass('hidden')" href="#new_task" class="large primary btn">Add Task</a></div>
 
-<form action="#" method="" class="hidden" id="new_task">
+<form action="#" method="post" class="hidden" id="new_task">{% csrf_token %}
   <h1>Create Task</h1>				
-  <p>
-    <label class="grey" for="signup">Task Title: </label>
-    <input class="field" type="text" name="name" id="name" size="23" />
-  </p>
-  <p>
-    <label class="grey" for="email">Date: </label>
-    <input class="field" type="text" name="date" id="date" size="23" />
-  </p>
-  <p>
-    <label class="grey" for="log">Priority: </label>
-    <input class="field" type="text" name="priority" id="priority" value="" size="23" />
-  </p>
+  {% for field in form %}
+    {{field.label_tag}}: {{field}}
+    {% endfor %}
   <input type="submit" name="submit" value="Add task" class="btn primary" />
 </form>
+
 <div id="app">
 </div>
 <div  class="container_12">
