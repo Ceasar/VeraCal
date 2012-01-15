@@ -259,15 +259,7 @@ $(function() {
 
 });
 
-TaskView = Backbone.View.extend({
-    el: $("div#app"),
-    render: function() {
-        $(thi.el).html(this.template(this.model.toJSON()));
-   }
-});     
-//});
-
-      Backbone.sync = function(method, model) {
+  Backbone.sync = function(method, model) {
   console.log(method + ": " + JSON.stringify(model));
   model.id = 1;
 };
