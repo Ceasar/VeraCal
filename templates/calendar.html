@@ -1,10 +1,44 @@
 {% block head %}
-<script type="text/javascript" src="{STATIC_URL}/js/calendar.js"></script>
+{%load verbatim%}
+{% load mustache %}
+{% load straight_include %}
+{% load media %}
+{% include_media 'jquery.js' %}
+{% include_media 'underscore.js' %}
+{% include_media 'backbone.js' %}
+{% include_media 'backbone-tastypie.js' %}
+{% include_media 'style.css' %}
+{% include_media 'style1.css' %}
+{% include_media 'prettyPhoto.css' %}  
+{% include_media 'ICanHaz.js' %}
+<script>
+  TASK_API = "{% url api_dispatch_list api_name="v1" resource_name="task" %}";
+  {% if data %}
+  app = {loaded: true};
+  {% endif %}
+</script>
+{% include_media 'app.js' %}
+<script type="text/html" id="taskTemplate">
+  {% straight_include "taskTemplate.mustache" %}
+</script>
+
+<script type="text/html" id="listApp">
+  {% straight_include "listApp.mustache" %}
+</script>
+
+<script type="text/html" id="detailApp">
+  {% straight_include "detailApp.mustache" %}
+</script>
 {% endblock %}
 
 {% block content %}
-<div id="main">
-  <ul>
-  </ul>
-</div>
+<body>
+  <div id="app">
+    {% if data %}
+    {% mustache "detailApp" data %}
+    {% endif %}
+  </div>
+</body>
+
+
 {% endblock %}

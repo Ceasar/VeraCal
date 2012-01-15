@@ -46,6 +46,17 @@ MEDIA_BUNDLES = (
 
     ('custom.js',
     'js/custom.js'),
+
+    ('backbone.js',
+    'js/backbone-0.5.3.min.js'),
+    ('app.js',
+    'js/app.js'),
+    ('ICanHaz.js',
+    'js/ICanHaz.js'),
+    ('backbone-tastypie.js',
+    'js/backbone-tastypie.js'),
+    ('underscore.js',
+    'js/underscore-1.3.0.min.js')
 )
 
 DATABASES = {
@@ -161,6 +172,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'apps.calendar',
     'apps.registration',
+    'tastypie',
 )
 
 
