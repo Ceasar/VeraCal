@@ -59,16 +59,6 @@ var task1, task2, task3, task4;
     
   
   });
-  task4 = new Task( { url: '1' } );
-  task4.fetch({
-	  success: function(model, response) {
-	      console.log("Success!: " + model.toString() + "\n response: " + 
-			  response);
-	  }
-	  , error: function(model, response) {
-	      console.log("Failure. Model: " + model.toString() + "\n response: " + response);
-	  }});
-
  now = new Date();
 
 Day = Backbone.Collection.extend({
