@@ -6,7 +6,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', 'PennApps2012.views.home', name='home'),
     url(r'^', include('apps.calendar.urls')),
-    (r'^accounts/', include('registration.backends.default.urls')),
+#    (r'^accounts/', include('registration.backends.default.urls')),
     url(r'^admin/', include(admin.site.urls)),
     )
 
