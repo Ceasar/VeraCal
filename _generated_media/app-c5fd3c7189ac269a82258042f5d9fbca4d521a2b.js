@@ -1,5 +1,6 @@
 
 var task1, task2, task3, task4, task4View, taskViews = [];
+var myList = [];
 
 
 $(function() {
@@ -12,17 +13,15 @@ $(function() {
     urlRoot: '/api/v1/task/'
   
     , initialize: function() {
-      console.log("New task: " + JSON.stringify(this.toJSON()));
+      //console.log("New task: " + JSON.stringify(this.toJSON()));
       if (this.url) {
-        console.log("URL provided: fetching");
+        //console.log("URL provided: fetching");
         this.fetch({
       	  success: function(model, response) {
-	          console.log("Success!: " + model.toString() + "\n response: " + 
-               			   response);
+	          //console.log("Success!: " + model.toString() + "\n response: " + response);
       	  }
       	  , error: function(model, response) {
-	           console.log("Failure. Model: " + model.toString() + "\n response: " + 
-	                       response);
+	           //console.log("Failure. Model: " + model.toString() + "\n response: " + response);
       	  }
         });     
       }
@@ -48,7 +47,7 @@ $(function() {
 
   
     initialize: function() {
-      console.log("New calendar: " + JSON.stringify(this.toJSON()));
+      //console.log("New calendar: " + JSON.stringify(this.toJSON()));
     }
   
     , model: Task
@@ -84,10 +83,10 @@ $(function() {
         
     , render: function() {
         var templateText = '<h3><%= name %></h3>' +
-                           '<span class="importance"><%= importance %></span>';
+                           '<span class="importance"><%= priority %></span>';
                            
         var template = _.template( templateText, this.model.toJSON());
-        $(this.el).html(template);
+        $(this.el).append(template);
         return this;
     }
   
@@ -131,38 +130,37 @@ $(function() {
   today = makeDate(now.getFullYear(), (now.getMonth() + 1), now.getDate());
   window.Day = Tasks.extend({
     url: '/api/v1/task/?calendar_id=1&date='+today,
+    importanceLevel: 0,
    });
 
   week =  makeDate(now.getFullYear(), (now.getMonth() + 1), now.getDate() + 7);
   window.Week = Tasks.extend({
     url: '/api/v1/task/?calendar_id=1&date__gt='+today+'&date__lte='+week,
+    importanceLevel: 1,
    });
 
   fortnight =  makeDate(now.getFullYear(), (now.getMonth() + 1), now.getDate() + 2 * 7);
   window.Fortnight = Tasks.extend({
     url: '/api/v1/task/?calendar_id=1&date__gt='+week+'&date__lte='+fortnight,
+    importanceLevel: 2,
    });
 
   month = makeDate(now.getFullYear(), (now.getMonth() + 2), now.getDate());
   window.Month = Tasks.extend({
     url: '/api/v1/task/?calendar_id=1&date__gt='+fortnight+'&date__lte='+month,
+    importanceLevel: 3,
     });
 
   quarter = makeDate(now.getFullYear(), (now.getMonth() + 4), now.getDate());
   window.Quarter = Tasks.extend({
     url: '/api/v1/task/?calendar_id=1&date__gt='+month+'&date__lte='+quarter,
-    });
-
-    });
-
-  quarter = makeDate(now.getFullYear(), (now.getMonth() + 4), now.getDate());
-  window.Quarter = Tasks.extend({
-    url: '/api/v1/task/?calendar_id=1&date__gt='+month+'&date__lte='+quarter,
+    importanceLevel: 4,
     });
 
   year = makeDate(now.getFullYear() + 1, (now.getMonth() + 1), now.getDate());
   window.Year = Tasks.extend({
     url: '/api/v1/task/?calendar_id=1&date__gt='+quarter+'&date__lte='+year,
+    importanceLevel: 5,
     });
 
 
@@ -171,14 +169,19 @@ $(function() {
     initialize: function() {
       var that = this;
       this._taskViews = [];
+      this.bind("add", this.render);
 
       this.collection.bind("reset", function() {
         this.each(function(task) {
-          var view = new TaskView({model: task});
-          that._taskViews.push(new TaskView({
-            model: task,
-/*             tagName: 'li' */
-          }));
+          console.log("Task: " + task.get('name') + " (" + task.get('priority') + ") [" + that.collection.importanceLevel + "]");
+          myList.push(task);
+          if (task.get('priority') >= that.collection.importanceLevel) {
+            var view = new TaskView({model: task});
+            that._taskViews.push(new TaskView({
+              model: task,
+  /*             tagName: 'li' */
+            }));
+          }
         });
         that.render();
       });
@@ -186,7 +189,7 @@ $(function() {
 
     render: function() {
       var that = this;
-      $(this.el).empty();
+/*       $(this.el).empty(); */
       _(this._taskViews).each(function(dv) {
         $(that.el).append(dv.render().el);
       });
@@ -238,6 +241,13 @@ $(function() {
 
 // required for saving
 
+var methodMap = {
+    'create': 'POST',
+    'update': 'PUT',
+    'delete': 'DELETE',
+    'read'  : 'GET'
+  };
+
 Backbone.sync = function(method, model, options){
     var type = methodMap[method];
     var params = _.extend({
@@ -271,35 +281,40 @@ Backbone.sync = function(method, model, options){
     return $.ajax(params);
     };
 
-
-
-
-
+Backbone.emulateJSON = true;
 $(function() {
     $('form').submit(function() {
 
         var new_task = new Backbone.Model({
-        date: $('#date :input').val();
-        name: $('#name :input').val();
-        priority: $('#priority :input').val();
-        console.log("new_task =" + new_task);
+        date: $('#date :input').val(),
+        name: $('#name :input').val(),
+        priority: $('priority :input').val()});
+
          new_task.save();
 
-        
+         date = new_task.get('date');
+
+         if (date >= now) {
+           if (date == now) {
+             Day.add(new_task);
+           } else if (date <= Date(week)) {
+             Week.add(new_task);
+           } else if (date <= Date(twoWeek)) {
+             Fortnight.add(new_task);
+           } else if (date <= Date(month)) {
+             Month.add(new_task);
+           } else if (date <= Date(quarter)) {
+             Quarter.add(new_task);
+           } else if (date <= Date(year)) {
+             Year.add(new_task);
+           }
+         }
         return false;
     });
 
 });
 
-  Backbone.sync = function(method, model) {
-TaskView = Backbone.View.extend({
-    el: $("div#app"),
-    render: function() {
-        $(this.el).html(this.template(this.model.toJSON()));
-   }
-});     
-//});
-
+ 
   
 });
 

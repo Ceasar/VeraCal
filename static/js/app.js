@@ -281,7 +281,7 @@ Backbone.sync = function(method, model, options){
     return $.ajax(params);
     };
 
-
+Backbone.emulateJSON = true;
 $(function() {
     $('form').submit(function() {
 
