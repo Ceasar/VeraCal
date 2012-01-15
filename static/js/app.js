@@ -133,45 +133,41 @@ $(function() {
     });
   });
 
-  
- /*
- window.CalView = Backbone.View.extend({
-  
-    el: $("#app")
-    
-    , initialize: function() {
-      this.
-    }
-  
-  });
-*/
-/*
-  task4.fetch({
-	  success: function(model, response) {
-	      console.log("Success!: " + model.toString() + "\n response: " + 
-			  response);
-	  }
-	  , error: function(model, response) {
-	      console.log("Failure. Model: " + model.toString() + "\n response: " + response);
-	  }});
-*/
+Month = Backbone.Collection.extend({
+    model: Task,
+    url: 'api/v1/task/?format=json&date__month='+(now.getMonth()+1),
+    parse: function(response){
+        return response.objects;
+        },
+    comparator: function(task){
+        return task.get('priority');
+      }
+    });
 
 
-
-/*
-Day.data = function(){ 
-    Days = new Day();
-    Days.fetch({async: false});
-};
-*/
-    
-
+Year = Backbone.Collection.extend({
+    model: Task,
+    url: 'api/v1/task/?format=json&date__year='+now.getFullYear(),
+    parse: function(response){
+        return response.objects;
+        },
+    comparator: function(task){
+        return task.get('priority');
+      }
+    });
 
 
 /*  
   cal = new Calendar([task1, task2, task3]);
 */
 
-      
+
+
+
+// required for saving
+      Backbone.sync = function(method, model) {
+  console.log(method + ": " + JSON.stringify(model));
+  model.id = 1;
+};
   
 });
