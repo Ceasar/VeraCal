@@ -87,7 +87,7 @@ $(function() {
                            '<span class="importance"><%= importance %></span>';
                            
         var template = _.template( templateText, this.model.toJSON());
-        $(this.el).append(template);
+        $(this.el).html(template);
         return this;
     }
   
@@ -153,6 +153,13 @@ $(function() {
     url: '/api/v1/task/?calendar_id=1&date__gt='+month+'&date__lte='+quarter,
     });
 
+    });
+
+  quarter = makeDate(now.getFullYear(), (now.getMonth() + 4), now.getDate());
+  window.Quarter = Tasks.extend({
+    url: '/api/v1/task/?calendar_id=1&date__gt='+month+'&date__lte='+quarter,
+    });
+
   year = makeDate(now.getFullYear() + 1, (now.getMonth() + 1), now.getDate());
   window.Year = Tasks.extend({
     url: '/api/v1/task/?calendar_id=1&date__gt='+quarter+'&date__lte='+year,
@@ -179,7 +186,7 @@ $(function() {
 
     render: function() {
       var that = this;
-/*       $(this.el).empty(); */
+      $(this.el).empty();
       _(this._taskViews).each(function(dv) {
         $(that.el).append(dv.render().el);
       });
@@ -231,13 +238,6 @@ $(function() {
 
 // required for saving
 
-var methodMap = {
-    'create': 'POST',
-    'update': 'PUT',
-    'delete': 'DELETE',
-    'read'  : 'GET'
-  };
-
 Backbone.sync = function(method, model, options){
     var type = methodMap[method];
     var params = _.extend({
@@ -272,23 +272,34 @@ Backbone.sync = function(method, model, options){
     };
 
 
+
+
+
 $(function() {
     $('form').submit(function() {
 
         var new_task = new Backbone.Model({
-        date: $('#date :input').val(),
-        name: $('#name :input').val(),
-        priority: $('priority :input').val()});
-
+        date: $('#date :input').val();
+        name: $('#name :input').val();
+        priority: $('#priority :input').val();
+        console.log("new_task =" + new_task);
          new_task.save();
-// add to collection
-// rerender whole collection       
+
+        
         return false;
     });
 
 });
 
- 
+  Backbone.sync = function(method, model) {
+TaskView = Backbone.View.extend({
+    el: $("div#app"),
+    render: function() {
+        $(this.el).html(this.template(this.model.toJSON()));
+   }
+});     
+//});
+
   
 });
 
