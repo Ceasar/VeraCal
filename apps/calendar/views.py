@@ -8,6 +8,7 @@ from models import Calendar, Task
 
 def calendar(request):
   if request.method == 'POST':
+    c = Calendar.objects.all()[0]
     form = TaskForm(request.POST, Task())
     if form.is_valid():
       form.save()

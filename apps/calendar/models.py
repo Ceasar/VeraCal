@@ -10,6 +10,9 @@ class Calendar(models.Model):
     del d['_state']
     d['tasks'] = [task.to_json() for task in self.task_set.all()]
     return d
+  
+  def __unicode__(self):
+    return "Personal"
 
 
 class Task(models.Model):
