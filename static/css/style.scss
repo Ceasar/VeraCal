@@ -220,6 +220,16 @@ top:2px;
           border-radius: 12px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
 }
 
+@mixin simple-gradient($from, $to) {
+  background-color: $from;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $from, $to); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient(top, $from, $to); /* FF3.6 */
+  background-image:     -ms-linear-gradient(top, $from, $to); /* IE10 */
+  background-image:      -o-linear-gradient(top, $from, $to); /* Opera 11.10+ */
+  background-image:         linear-gradient(top, $from, $to);
+}
+
 /***************** Main **********************/
 #main{
   width: 960px;
@@ -248,7 +258,23 @@ top:2px;
   }
   
   #new_task {
+    background-color: #404040;
+    position: absolute;
+    top: 70px;
+    width: 380px;
+    padding: 10px;
+    left: 270px;
+    left: -9999px;
+    z-index: 40;
+    box-shadow: 0 0 5px #333;
     
+    @include simple-gradient(darken(#404040, 15%), lighten(#404040, 5%));
+    
+    h1, label {
+      color: #fff;
+      font-weight: bold;      
+      text-shadow: -1px 0 0 darken(#404040, 15%);
+    }
   }
   
   .col {
