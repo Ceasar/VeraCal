@@ -11,30 +11,52 @@
 {% include_media 'prettyPhoto.css' %}  
 {% include_media 'ICanHaz.js' %}
 {% include_media 'app.js' %}
-
+{% include_media '960.css' %}
+<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
 {% endblock %}
 
+
 {% block content %}
-<body>
-<div id="result"></div>
+<div id="add-btn"><a href="#new_task" class="large primary btn">Add Event</a></div>
+
 <form action="#" method="" id="new_task">
-					<h1>Create Task</h1>				
-					<label class="grey" for="signup">Task Title:</label>
-					<input class="field" type="text" name="name" id="name" size="23" />
-					<p><label class="grey" for="email">Date:</label>
-					<input class="field" type="text" name="date" id="date" size="23" /><p>
-                    <label class="grey" for="log">Priority</label>
-					<input class="field" type="text" name="priority" id="priority" value="" size="23" />
-					<input type="submit" name="submit" value="Add task" class="bt_register" />
-				</form>
-			</div>
-		</div>
+  <h1>Create Task</h1>				
+  <label class="grey" for="signup">Task Title:</label>
+  <input class="field" type="text" name="name" id="name" size="23" />
+  <p>
+    <label class="grey" for="email">Date:</label>
+    <input class="field" type="text" name="date" id="date" size="23" />
+  <p>
+  <label class="grey" for="log">Priority</label>
+  <input class="field" type="text" name="priority" id="priority" value="" size="23" />
+  <input type="submit" name="submit" value="Add task" class="bt_register" />
+</form>
+<div id="app">
 </div>
-  <div id="app">
-  
+<div  class="container_12">
+  <div id="col1" class="col grid_4">
+    <section id="day">
+    
+    </section>
+    <section id="week">
+    
+    </section>
   </div>
-  <div id="today"></div>
-  <div id="month"></div>
-  <div id="year"></div>
-</body>
+  <div id="col2" class="col grid_4">
+    <section id="two-weeks">
+    
+    </section>
+    <section id="month">
+    
+    </section>
+  </div>
+  <div id="col3" class="col grid_4">
+    <section id="three-months">
+    
+    </section>
+    <section id="year">
+    
+    </section>
+  </div>
+</div>
 {% endblock %}

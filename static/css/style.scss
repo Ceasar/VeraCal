@@ -50,8 +50,8 @@ border: none;
 
 #nav{
 position: absolute;
-right:15px;
-top:30px;
+right: -10px;
+top: 30px;
 list-style-type: none;
 list-style-position: outside;
 margin:0;
@@ -63,14 +63,14 @@ float: left;
 }
 
 #nav li a{
-display:block;
-float:left;
-padding:6px 10px;
-width:100px;
-border: none;
-text-decoration: none;
-line-height: 18px;
-outline: none;
+  display:block;
+  float:left;
+  padding:6px 10px;
+  width:80px;
+  border: none;
+  text-decoration: none;
+  line-height: 18px;
+  outline: none;
 }
 
 
@@ -241,6 +241,16 @@ top:2px;
     border-width: 0 1px;
   }
   
+  #add-btn {
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+  }
+  
+  #new_task {
+    
+  }
+  
   .col {
     width: 290px;
 /*     margin: 0 0 0 -10px; */
@@ -249,26 +259,26 @@ top:2px;
 /*     @include shadow-right; */
   }
   
-  #col1 {
+  .col1 {
     z-index: 10;
 /*     background-color: #fff; */
     background: #fff url('images/edge-left.png')no-repeat center right;
   }
   
-  #col2 {
+  .col2 {
     z-index: 9;
 /*     background: rgb(231, 231, 231); */
     background: rgb(231, 231, 231) url('images/edge-right.png')no-repeat center right;
   }
   
-  #col3 {
+  .col3 {
     z-index: 8;
     background-color: rgb(190, 190, 190);
     margin: 0;
   }
   
   
-  #task-item {
+  .task-item {
     background-color: lighten(rgb(143, 206, 239), 20%);
 /*     @include all-rounded; */
     @include inner-shadow;

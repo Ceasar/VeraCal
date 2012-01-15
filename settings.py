@@ -47,20 +47,27 @@ MEDIA_BUNDLES = (
     ('swfobject.js',
         'slideshow/js/swfobject/swfobject.js'
     ),
-
     ('custom.js',
-    'js/custom.js'),
-
+        'js/custom.js'
+    ),
     ('backbone.js',
-    'js/backbone-0.5.3.min.js'),
+        'js/backbone-0.5.3.min.js'
+    ),
+    ('960.css',
+        'css/960.css'
+    ),
     ('app.js',
-    'js/app.js'),
+        'js/app.js'
+    ),
     ('ICanHaz.js',
-    'js/ICanHaz.js'),
+        'js/ICanHaz.js'
+    ),
     ('backbone-tastypie.js',
-    'js/backbone-tastypie.js'),
+        'js/backbone-tastypie.js'
+    ),
     ('underscore.js',
-    'js/underscore-1.3.0.min.js')
+        'js/underscore-1.3.0.min.js'
+    )
 )
 
 DATABASES = {
