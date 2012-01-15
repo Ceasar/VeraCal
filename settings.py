@@ -22,11 +22,15 @@ ACCOUNT_ACTIVATION_DAYS = 7
 
 MEDIA_BUNDLES = (
     ('style.css',
-        'css/style.css',
-        
-    ),
+        'css/style.css'
+    ),    
+   
     ('style1.css',
         'css/style1.css',
+    ),
+
+    ('backbone.localStorage.js',
+        'js/backbone.localStorage.js'
     ),
 
     ('prettyPhoto.css',
