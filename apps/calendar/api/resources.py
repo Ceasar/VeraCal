@@ -11,6 +11,7 @@ http://127.0.0.1:8000/api/resource/set/1;3/?format=json
 
 from tastypie import fields
 from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
+from tastypie.authorization import Authorization
 
 from apps.calendar.models import Calendar, Task
 from tastypie.authorization import Authorization
@@ -33,6 +34,7 @@ class TaskResource(ModelResource):
         'calendar': ALL_WITH_RELATIONS,
         'date': ALL
         }
+    authorization = Authorization()
 
   def dehydrate(self, bundle):
     bundle.data['cid'] = bundle.obj.calendar.id
