@@ -94,8 +94,6 @@ $(function() {
   });
   
   
-  now = new Date();
-  today = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
 
 
   /* Abstract Task collection. */
@@ -115,19 +113,51 @@ $(function() {
         return task.get('priority');}
         
    });
- 
-  /* Tasks for Today */
+
+
+  makeDate = function(year, month, day) {
+    if (month < 10) {
+      month = "0" + month;
+    }
+    if (day < 10) {
+      day = "0" + day;
+    }
+    return year + "-" + month + "-" + day;
+  };
+
+
+  now = new Date();
+
+  today = makeDate(now.getFullYear(), (now.getMonth() + 1), now.getDate());
   window.Day = Tasks.extend({
     url: '/api/v1/task/?calendar_id=1&date='+today,
    });
 
+  week =  makeDate(now.getFullYear(), (now.getMonth() + 1), now.getDate() + 7);
+  window.Week = Tasks.extend({
+    url: '/api/v1/task/?calendar_id=1&date__gt='+today+'&date__lte='+week,
+   });
+
+  fortnight =  makeDate(now.getFullYear(), (now.getMonth() + 1), now.getDate() + 2 * 7);
+  window.Fortnight = Tasks.extend({
+    url: '/api/v1/task/?calendar_id=1&date__gt='+week+'&date__lte='+fortnight,
+   });
+
+  month = makeDate(now.getFullYear(), (now.getMonth() + 2), now.getDate());
   window.Month = Tasks.extend({
-    url: 'api/v1/task/?date__month='+(now.getMonth()+1),
+    url: '/api/v1/task/?calendar_id=1&date__gt='+fortnight+'&date__lte='+month,
     });
 
-  window.Year = Tasks.extend({
-    url: 'api/v1/task/?date__year='+now.getFullYear(),
+  quarter = makeDate(now.getFullYear(), (now.getMonth() + 4), now.getDate());
+  window.Quarter = Tasks.extend({
+    url: '/api/v1/task/?calendar_id=1&date__gt='+month+'&date__lte='+quarter,
     });
+
+  year = makeDate(now.getFullYear() + 1, (now.getMonth() + 1), now.getDate());
+  window.Year = Tasks.extend({
+    url: '/api/v1/task/?calendar_id=1&date__gt='+quarter+'&date__lte='+year,
+    });
+
 
   /* Collection Views  */
   TasksView = Backbone.View.extend({
@@ -150,15 +180,6 @@ $(function() {
     render: function() {
       var that = this;
       $(this.el).empty();
-
-
-  var methodMap = {
-    'create': 'POST',
-    'update': 'PUT',
-    'delete': 'DELETE',
-    'read'  : 'GET'
-  };
-
       _(this._taskViews).each(function(dv) {
         $(that.el).append(dv.render().el);
       });
@@ -169,15 +190,33 @@ $(function() {
 
   dayView = new TasksView({
     collection: new Day(),
-    el: $('#today')
+    el: $('#day')
   });
   dayView.render();
+
+  weekView = new TasksView({
+    collection: new Week(),
+    el: $('#week')
+  });
+  weekView.render();
+
+  fortnightView = new TasksView({
+    collection: new Fortnight(),
+    el: $('#two-weeks')
+  });
+  fortnightView.render();
 
   monthView = new TasksView({
     collection: new Month(),
     el: $('#month')
   });
   monthView.render();
+
+  threeMonthView = new TasksView({
+    collection: new Quarter(),
+    el: $('#three-months')
+  });
+  threeMonthView.render();
 
   yearView = new TasksView({
     collection: new Year(),
