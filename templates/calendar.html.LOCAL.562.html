@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block head %}
+
+{% load media %}
+{% include_media 'jquery.js' %}
+{% include_media 'underscore.js' %}
+{% include_media 'backbone.js' %}
+{% include_media 'backbone-tastypie.js' %}
+{% include_media 'style.css' %}
+{% include_media 'style1.css' %}
+{% include_media 'prettyPhoto.css' %}  
+{% include_media 'ICanHaz.js' %}
+{% include_media 'app.js' %}
+
+<style type="text/css">
+
+* {
+  color: #fff !important;
+}
+
+</style>
+{% endblock %}
+
+{% block content %}
+<body>
+  <div id="today"></div>
+  <div id="month"></div>
+  <div id="year"></div>
+</body>
+{% endblock %}
