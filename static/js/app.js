@@ -96,7 +96,7 @@ $(function() {
   
 
 
-  t add/* Abstract Task collection. */
+  /* Abstract Task collection. */
   Tasks = Backbone.Collection.extend({
 
     model: Task,
