@@ -16,12 +16,14 @@ from apps.calendar.models import Calendar, Task
 
 
 class CalendarResource(ModelResource):
-  tasks = fields.ToManyField('api.resources.TaskResource', 'task_set')
   class Meta:
     queryset = Calendar.objects.all()
 
 
 class TaskResource(ModelResource):
-  calendar = fields.ToOneField(CalendarResource, 'calendar')
   class Meta:
     queryset = Task.objects.all()
+
+  def dehydrate(self, bundle):
+    bundle.data['cid'] = bundle.obj.calendar.id
+    return bundle
