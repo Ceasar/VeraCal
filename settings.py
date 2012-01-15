@@ -30,19 +30,23 @@ MEDIA_BUNDLES = (
     ),
 
     ('prettyPhoto.css',
-         'light/js/prettyPhoto/css/prettyPhoto.css',
+         'prettyPhoto/css/prettyPhoto.css',
+    ),
+    ('slide.css',
+        'css/slide.css'
+    ),
+    ('slide.js', 
+        'js/slide.js'
     ),
     ('jquery.js',
-        'js/jquery.js'),
-    ('slide.js', 
-    'js/slide.js'),
-    ('slide.css',
-        'css/slide.css'),
-    ('slideshow/js/swfobject/swfobject.js',
-    'js/swfobject.js'),
-
-    ('prettyPhoto.js',
-        'js/prettyPhoto/js/jquery.prettyPhoto.js'),
+        'js/jquery.js'
+    ),
+    ('jquery.prettyPhoto.js',
+        'prettyPhoto/js/jquery.prettyPhoto.js'
+    ),
+    ('swfobject.js',
+        'slideshow/js/swfobject/swfobject.js'
+    ),
 
     ('custom.js',
     'js/custom.js'),

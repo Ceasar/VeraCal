@@ -1,34 +1,21 @@
 jQuery.noConflict();
-
 jQuery(document).ready(function(){
-
-	// activates the lightbox page, if you are using a dark color scheme use another theme parameter
 	my_lightbox("a[rel^='prettyPhoto'], a[rel^='lightbox']");
-	
-	
-	k_form(); //controls the contact form
-	k_menu(); // controls the dropdown menu
+	k_form();
+	k_menu();
 
 });
-
-
-jQuery(window).load(function(){
-	/*image slider (alternate)*/	
+jQuery(window).load(function(){	
 	if (jQuery('#featured_image img').length > 0 )
 	{	
 		jQuery('#featured_image img').not('.current_img').css({display:"none"});
-		// set the automatic image rotation, number is time between transitions in miliseconds
 		interval = setInterval(function() { k_fader("#featured_image img",'1'); }, 4000); 	
 	}
 });
-
-
-
-
 function k_menu()
 {
 	jQuery("#nav a, .subnav a").removeAttr('title');
-	jQuery(" #nav ul ").css({display: "none"}); // Opera Fix
+	jQuery(" #nav ul ").css({display: "none"});
 	
 	jQuery("#nav li").each(function()
 	{	
@@ -51,12 +38,6 @@ function k_menu()
 		});	
 	});
 }
-
-
-
-
-
-
 function k_fader($items_to_fade, $next_or_prev)
 {	
 	var $items = jQuery($items_to_fade);
@@ -90,13 +71,10 @@ function k_fader($items_to_fade, $next_or_prev)
 			}
 	}
 }
-
-
-
 function my_lightbox($elements)
 {
 jQuery($elements).prettyPhoto({
-		"theme": 'light_square' /* light_rounded / dark_rounded / light_square / dark_square */																
+		"theme": 'light_square' 								
 	});
 
 jQuery($elements).each(function()
@@ -119,9 +97,6 @@ jQuery($elements).each(function()
 			$bg.css({height:$height, width:$width, top:$pos.top, left:$pos.left});
 		});
 	}
-	
-	
-	
 });	
 	
 jQuery($elements).contents("img").hover(function(){

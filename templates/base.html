@@ -1,43 +1,128 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Veracal</title>
-	
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Veracal</title>
 {% block head %}
-{% load media %} {% include_media 'style.css' %} {% include_media 'style1.css' %} {% include_media 'prettyPhoto.css' %} {% include_media 'jquery.js' %} {% include_media 'slideshow/js/swfobject/swfobject.js'%} {% include_media 'slide.js' %} {% include_media 'custom.js' %}
+{% load media %}
+{% include_media "style.css" %}
+{% include_media "style1.css" %}
+{% include_media "prettyPhoto.css" %}
+{% include_media "slide.css" %}
+{% include_media "slide.js" %}
+{% include_media "jquery.js" %}
+{% include_media "jquery.prettyPhoto.js" %}
+{% include_media "swfobject.js" %}
+<script type="text/javascript">
+	var flashvars = {};
+	flashvars.xml = "media/slideshow/config.xml";
+	flashvars.font = "font.swf";
+	var attributes = {};
+	attributes.wmode = "transparent";
+	attributes.id = "slider";
+	swfobject.embedSWF("media/slideshow/cu3er.swf", "featured_image", "940", "420", "9", "media/expressInstall.swf", flashvars, attributes);
+</script>
+{% include_media "custom.js" %}
 {% endblock %}
-<script type='text/javascript' src='js/custom.js'></script>
-<!--[if IE 6]>
-<script type='text/javascript' src='js/dd_belated_png.js'></script>
-<script>DD_belatedPNG.fix('.ie6fix');</script>
-<style>#footer .box ul li a, #sidebar .box ul a {zoom:1;}</style>
-<![endif]-->
 </head>
-<body id='frontpage'>
-  <div class='wrapper'>
-    {% block content %}
-    {% endblock %}
-    <div class="box box_custom_footer">
-      <a href='contact.php' class='custom_button ie6fix rounded'><strong>Contact Form</strong><span>get in touch with us</span></a>
-      <div id='sitesearch_footer'>
-        <h4>Search Site</h4>
-        <form action="#" id="searchform" method="get">
-          <div><input type="text" class='rounded' id="s" name="s" value=""/>
-            <input type="submit" value="." id="searchsubmit" class="button ie6fix"/>
-          </div>
-        </form>
-      </div>
-      <p>Copyright 2012 Veracal</p>	
-      <ul class="social_bookmarks">
-        <li class='rss'><a class='ie6fix' href="#">RSS</a></li>
-        <li class='facebook'><a class='ie6fix' href="#">Facebook</a></li>
-        <li class='twitter'><a class='ie6fix' href="#">Twitter</a></li>
-        <li class='flickr'><a class='ie6fix' href="#">flickr</a></li>
-      </ul>
-    </div>
-  </div>
+<body id='subpage' class='fullwidth'>
+<div class='wrapper'>
+	<div id="top">
+		<div id="head">
+			<h1 class="logo ie6fix"><img src="media/images/logo.png" alt="" width="259" height="77" /></h1>
+			<ul id="nav">
+		    <li class='current'><a href="index.html"><strong>Home</strong><span>&nbsp;</span></a></li>
+				<li><a href="#"><strong>Calendar</strong><span>&nbsp;</span></a>
+				<ul>
+					<li><a href="#">Custom Calendar</a></li>
+					<li><a href="#">Tasks</a></li>
+					<li><a href="#">Goals</a></li>
+					<li><a href='#'>Progress</a>
+						<ul>
+						<li><a href='#'>Daily Progress</a></li>
+						<li><a href='#'>Weekly Progress</a></li>
+						<li><a href='#'>Monthly Progress</a></li>
+						</ul>
+					</li>
+					</ul>
+				</li>
+        <li><a href="#"><strong>About</strong><span>&nbsp;</span></a></li>
+				<li><a href="#"><strong>Contact</strong><span>&nbsp;</span></a></li>
+					</ul>
+		</div>	
+		<div id="main">
+			<div id="content" class="container_12">
+			{% block content %}
+			{% endblock %}
+			
+			</div><!--/#content-->
+		</div>
+	</div>	
+</div>
+<div class='wrapper' id='footerwrap'>
+	<div id='footer'>
+		<div class="box box_mini">
+			<h4>User Hub</h4>
+			<ul>
+				<li><a href="#">Preferences</a></li>
+				<li><a href="#">Goal Setting</a></li>
+				<li><a href="#">Community</a></li>
+				<li><a href="#">Learn More</a></li>
+			</ul>
+		</div>
+		<div class="box box_mini">
+			<h4>Navigation</h4>
+			<ul>
+				<li><a href="index-2.html">Home</a></li>
+				<li><a href="portfolio.html">Calendar</a></li>
+				<li><a href="contact.php">About</a></li>
+				<li><a href="page.html">Contact Us</a></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div class="box box_mini">
+			<h4>Categories</h4>
+			<ul>
+				<li><a href="#">Daily Tasks</a></li>
+				<li><a href="#">Weekly Tasks</a></li>
+				<li><a href="#">Monthly Tasks</a></li>
+				<li><a href="#">Long Term Tasks</a></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div class="box box_mini">
+			<h4>Miscellaneous</h4>
+			<ul>
+				<li><a href="page.html">Register</a></li>
+				<li><a href="page.html">Log in</a></li>
+				<li><a href="page.html">Terms of Service</a></li>
+				<li><a href="contact.php">Contact</a></li>
+				<li></li>
+			</ul>
+		</div>
+		<div class="box box_custom_footer">
+			<a href='contact.php' class='custom_button ie6fix rounded'><strong>Contact Form</strong><span>get in touch with us</span></a>
+			<div id='sitesearch_footer'>
+			<h4>Search Site</h4>
+				<form action="#" id="searchform" method="get">
+						<div><input type="text" class='rounded' id="s" name="s" value=""/>
+						<input type="submit" value="." id="searchsubmit" class="button ie6fix"/></div></form>
+			</div>
+			<p>Copyright 2012 Veracal</p>	
+			<ul class="social_bookmarks">
+				<li class='rss'><a class='ie6fix' href="#">RSS</a></li>
+				<li class='facebook'><a class='ie6fix' href="#">Facebook</a></li>
+				<li class='twitter'><a class='ie6fix' href="#">Twitter</a></li>
+				<li class='flickr'><a class='ie6fix' href="#">Flickr</a></li>
+			</ul>
+		</div>
+	</div>
 </div>
 </body>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
