@@ -87,7 +87,7 @@ $(function() {
                            '<span class="importance"><%= importance %></span>';
                            
         var template = _.template( templateText, this.model.toJSON());
-        $(this.el).html(template);
+        $(this.el).append(template);
         return this;
     }
   
@@ -180,7 +180,7 @@ $(function() {
 
     render: function() {
       var that = this;
-      $(this.el).empty();
+/*       $(this.el).empty(); */
       _(this._taskViews).each(function(dv) {
         $(that.el).append(dv.render().el);
       });
