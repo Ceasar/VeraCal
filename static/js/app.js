@@ -52,13 +52,54 @@ var task1, task2, task3, task4;
   
   });
   
+  
+  
+  /**
+   * View: Task
+   */
   window.TaskView = Backbone.View.extend({
   
-    tagName: "li"
+/*
+    tagName: "div"
+    , className: "task-item"
+    , template: _.template('<h3><% name %></h3>')
+*/
     
+    initialize: function() {
+      this.render();
+    }
     
+    , render: function() {
+      var template = _.template( '<h3><%= name %></h3>', {
+          name: this.model.get('name')
+        });
+      this.el.html(template);
+/*       $(this.el).html(this.template(this.model.toJSON())); */
+    }
+    
+/*
+    , setContent: function() {      
+      var content = this.model.get('content');
+      this.$('.todo-content').set("html", content);
+      this.$('.todo-input').setProperty("value", content);
+      
+      if (this.model.get('done')) {
+        this.$(".todo-check").setProperty("checked", "checked");
+        $(this.el).addClass("done");
+      } else {
+        this.$(".todo-check").removeProperty("checked");
+        $(this.el).removeClass("done");
+      }
+      
+      this.input = this.$(".todo-input");
+      this.input.addEvent('blur', this.close);
+    },
+*/
   
   });
+  
+  
+  
   task4 = new Task( { url: '1' } );
   task4.fetch({
 	  success: function(model, response) {
@@ -69,9 +110,12 @@ var task1, task2, task3, task4;
 	      console.log("Failure. Model: " + model.toString() + "\n response: " + response);
 	  }});
 
- now = new Date();
+  task4View = new TaskView({ model: task4, el: $("#app") });
 
-Day = Backbone.Collection.extend({
+/*
+ now = new Date();
+ 
+window.Day = Backbone.Collection.extend({
     model: Task,
     url: '/api/v1/task/?format=json&calendar__id=1&date='+ now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate(),
     parse: function(response) {
@@ -83,6 +127,8 @@ Day = Backbone.Collection.extend({
 
  });
 
+TaskView = Backbone.View.extend
+
 Day.data = function(){ 
     Days = new Day();
     Days.fetch({async: false});
@@ -93,6 +139,7 @@ Day.data = function(){
 
   
   cal = new Calendar([task1, task2, task3]);
+*/
 
       
   
