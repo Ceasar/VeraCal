@@ -179,7 +179,8 @@ body {
   #content #add-btn {
     text-align: center;
     padding: 10px 0;
-    margin: 0; }
+    margin: 0;
+    background-color: #222222; }
   #content #new_task {
     background-color: #404040;
     position: absolute;
@@ -206,24 +207,41 @@ body {
       color: #fff;
       font-weight: bold;
       text-shadow: -1px 0 0 #1a1a1a; }
+  #content .container_12 {
+    overflow: hidden;
+    position: relative; }
   #content .col {
     width: 290px;
     /*     margin: 0 0 0 -10px; */
-    margin: 0;
     padding: 0 20px 0 10px;
+    margin: 0 0 0 0;
+    display: block;
+    /*
+        float: none;
+        position: absolute;
+        top: 0;
+        height: 100%;
+    */
+    position: absolute;
+    top: 0;
+    bottom: 0;
     /*     @include shadow-right; */ }
-  #content .col1 {
-    z-index: 10;
-    /*     background-color: #fff; */
-    background: white url("images/edge-left.png") no-repeat center right; }
-  #content .col2 {
-    z-index: 9;
-    /*     background: rgb(231, 231, 231); */
-    background: #e7e7e7 url("images/edge-right.png") no-repeat center right; }
-  #content .col3 {
-    z-index: 8;
+  #content section h2 {
+    font-size: 15px; }
+    #content section h2 small {
+      font-size: 12px;
+      color: #555; }
+  #content #col1 {
+    background: white url("images/edge-left.png") repeat-y center right; }
+  #content #col2 {
+    background: #e7e7e7 url("images/edge-right.png") repeat-y center right;
+    left: 320px; }
+  #content #col3 {
     background-color: #bebebe;
-    margin: 0; }
+    margin: 0;
+    position: static;
+    float: right;
+    /*     right: 320px; */ }
   #content .task-item {
     background-color: #e8f5fc;
     /*     @include all-rounded; */
@@ -231,8 +249,10 @@ body {
     -moz-box-shadow: inset 0 0 5px  #333;
     box-shadow: inset 0 0 5px  #333;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 5px 10px;
     position: relative; }
+    #content .task-item h3 {
+      font-size: 14px; }
     #content .task-item .importance {
       position: absolute;
       top: 0;
