@@ -115,14 +115,39 @@ $(function() {
 
 
   makeDate = function(year, month, day) {
-    if (month < 10) {
+  
+    if (day > 28){
+    var i;
+         for (i = 0; i < day; i++){
+            if (month == 2 && day > 28){
+                month = month + 1;
+                day = 1;}
+             if (month==1 || month== 3 || month== 5 || month == 7 || month == 8 || month == 10 || month == 12){
+                 if (day > 31){
+                     day = 1;
+                     month = month + 1;}
+                                        }
+             if (month == 4 || month == 6 || month == 9 || month == 11 ){
+                 if (day > 30){
+                     day = 1;
+                     month = 1;}
+              } 
+         if (month > 12){
+             month = 1;
+            }
+                   } 
+
+  if (month < 10) {
       month = "0" + month;
     }
     if (day < 10) {
       day = "0" + day;
     }
+             
+}
     return year + "-" + month + "-" + day;
   };
+ 
 
 
   now = new Date();
@@ -252,7 +277,7 @@ Backbone.sync = function(method, model, options){
     var type = methodMap[method];
     var params = _.extend({
         type: type,
-        dataType: 'json'
+        dataType: 'application/json'
     }, options);
 
     if (!params.url){

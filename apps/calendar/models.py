@@ -1,5 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
+from tastypie.resources import ModelResource
+
+
 
 
 class Calendar(models.Model):
@@ -29,3 +32,5 @@ class Task(models.Model):
     del d['_state']
     d['date'] = str(d['date'])
     return d
+
+

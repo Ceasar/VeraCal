@@ -12,7 +12,7 @@ http://127.0.0.1:8000/api/resource/set/1;3/?format=json
 from tastypie import fields
 from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 from tastypie.authorization import Authorization
-
+from django.contrib.auth.models import User
 from apps.calendar.models import Calendar, Task
 from tastypie.authorization import Authorization
 
@@ -40,3 +40,10 @@ class TaskResource(ModelResource):
   def dehydrate(self, bundle):
     bundle.data['cid'] = bundle.obj.calendar.id
     return bundle
+
+
+class UserResource(ModelResource):
+    class Meta:
+        queryset = User.objects.all()
+        resource_name = 'user'
+
