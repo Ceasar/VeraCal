@@ -8,8 +8,8 @@ urlpatterns = patterns('',
     url(r'^', include('apps.calendar.urls')),
 #    (r'^accounts/', include('registration.backends.default.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^api/', include('PennApps2012.api.urls')),
     )
-
 urlpatterns += patterns('',
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': settings.MEDIA_ROOT,
